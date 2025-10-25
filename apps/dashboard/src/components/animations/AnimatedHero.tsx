@@ -204,7 +204,7 @@ export default function AnimatedHero() {
   };
 
   return (
-    <section id="hero" className="container mx-auto px-4 py-16 text-center pt-28 relative">
+    <section id="hero" className="container mx-auto px-4 pb-0 text-center pt-28 relative">
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
       
       <h1 
