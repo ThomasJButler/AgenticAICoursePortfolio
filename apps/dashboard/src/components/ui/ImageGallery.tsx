@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Image gallery component with modal viewer, carousel navigation, and animations
+ */
+
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from 'react';

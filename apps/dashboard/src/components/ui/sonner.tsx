@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Toast notification component wrapper with theme support
+ */
+
 "use client"
 
 import { useTheme } from "next-themes"

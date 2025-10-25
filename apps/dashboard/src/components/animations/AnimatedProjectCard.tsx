@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Project card component with scroll-triggered entrance animations and hover effects
+ */
+
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";

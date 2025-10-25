@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description React hooks for Intersection Observer API with animation trigger support
+ */
+
 import { useEffect, useRef, useState, RefObject } from 'react';
 
 interface UseIntersectionObserverOptions extends IntersectionObserverInit {
@@ -5,6 +11,14 @@ interface UseIntersectionObserverOptions extends IntersectionObserverInit {
   initialIsIntersecting?: boolean;
 }
 
+/**
+ * Single element intersection observer hook for scroll-triggered animations
+ * @template T - HTML element type
+ * @param {UseIntersectionObserverOptions} options - Observer configuration
+ * @param {number} [options.threshold=0.1] - Visibility threshold (0-1)
+ * @param {boolean} [options.freezeOnceVisible=false] - Stop observing after first visibility (animation performance optimisation)
+ * @return {[RefObject<T | null>, boolean]} Tuple of element ref and isIntersecting boolean
+ */
 export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
   options: UseIntersectionObserverOptions = {}
 ): [RefObject<T | null>, boolean] {
@@ -20,6 +34,9 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
   const [isIntersecting, setIsIntersecting] = useState(initialIsIntersecting);
   const frozen = useRef(false);
 
+  /**
+   * @constructs - Initialises intersection observer for element
+   */
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
@@ -49,6 +66,13 @@ export function useIntersectionObserver<T extends HTMLElement = HTMLElement>(
   return [elementRef, isIntersecting];
 }
 
+/**
+ * Multiple element intersection observer for managing visibility of lists or groups
+ * Returns API to manually observe/unobserve elements with central state management
+ * @template T - HTML element type
+ * @param {UseIntersectionObserverOptions} options - Observer configuration
+ * @return {Object} Control interface with observe, unobserve, and entries map
+ */
 export function useMultipleIntersectionObserver<T extends HTMLElement = HTMLElement>(
   options: UseIntersectionObserverOptions = {}
 ): {
@@ -67,24 +91,27 @@ export function useMultipleIntersectionObserver<T extends HTMLElement = HTMLElem
   const observerRef = useRef<IntersectionObserver | null>(null);
   const frozenElements = useRef<Set<T>>(new Set());
 
+  /**
+   * @constructs - Initialises shared intersection observer for multiple elements
+   */
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (observerEntries) => {
         setEntries((prevEntries) => {
           const newEntries = new Map(prevEntries);
-          
+
           observerEntries.forEach((entry) => {
             const element = entry.target as T;
             const isIntersecting = entry.isIntersecting;
-            
+
             newEntries.set(element, isIntersecting);
-            
+
             if (isIntersecting && freezeOnceVisible && !frozenElements.current.has(element)) {
               frozenElements.current.add(element);
               observerRef.current?.unobserve(element);
             }
           });
-          
+
           return newEntries;
         });
       },

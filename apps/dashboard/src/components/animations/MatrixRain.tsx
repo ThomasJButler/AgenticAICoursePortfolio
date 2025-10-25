@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Background matrix rain effect with layered animated particles
+ */
+
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";

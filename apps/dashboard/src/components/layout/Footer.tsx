@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Footer component with social links, quick navigation, and copyright
+ */
+
 import Link from "next/link";
 import { Github, Linkedin, Code2, Mail, Heart } from "lucide-react";
 

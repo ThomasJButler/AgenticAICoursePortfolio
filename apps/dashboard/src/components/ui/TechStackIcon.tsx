@@ -1,10 +1,16 @@
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiPython, 
-  SiJavascript, 
-  SiNodedotjs, 
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Technology stack icon component with dynamic rendering from technology names
+ */
+
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiPython,
+  SiJavascript,
+  SiNodedotjs,
   SiTailwindcss,
   SiPostgresql,
   SiDocker,

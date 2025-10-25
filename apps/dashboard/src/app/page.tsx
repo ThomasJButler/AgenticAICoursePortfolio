@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Main portfolio homepage showcasing AI projects with animated components
+ */
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -77,7 +83,7 @@ export default function Home() {
 
           {/* Projects in Development Section */}
           <ProjectsInDevelopmentHeading />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {projectsInDevelopment.map((project, index) => (
               <AnimatedProjectCard
                 key={project.id}
@@ -144,11 +150,11 @@ export default function Home() {
           >
             <ContestGlow />
             <h2 className="text-3xl font-bold mb-4 text-green-400" style={{ opacity: 0 }}>
-              🏆 Contest Entry: SQL-Ball
+              Contest Entry: SQL-Ball
             </h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto" style={{ opacity: 0 }}>
               Football data analytics with natural language queries, AI-powered insights,
-              and interactive performance visualizations.
+              and interactive performance visualisations.
             </p>
             <Link href="/projects/sql-ball">
               <Button
@@ -374,9 +380,14 @@ function LearningJourneySection() {
   const prefersReducedMotion = useReducedMotion();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const glowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (isJourneyVisible && !prefersReducedMotion && journeyRef.current) {
+    if (isJourneyVisible && !hasAnimated.current && !prefersReducedMotion && journeyRef.current) {
+      hasAnimated.current = true;
+
       // Animate title with subtle fade
       if (titleRef.current) {
         anime(titleRef.current, {
@@ -398,30 +409,120 @@ function LearningJourneySection() {
         });
       }
 
-      // Animate cards with subtle stagger
-      anime(journeyRef.current.querySelectorAll(".journey-card"), {
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: durations.normal,
-        delay: stagger(100, { start: 300 }),
-        easing: animeEasings.smoothOut,
+      // Animate cards with sophisticated entrance (similar to project cards)
+      cardRefs.current.forEach((card, index) => {
+        if (card) {
+          anime(card, {
+            opacity: [0, 1],
+            translateY: [40, 0],
+            rotateX: [-10, 0],
+            duration: durations.slow,
+            delay: index * 150 + 300,
+            easing: animeEasings.appleEaseOut,
+          });
+        }
       });
 
-      // Animate bullet points
+      // Animate bullet points with enhanced effects
       anime(journeyRef.current.querySelectorAll(".journey-card li"), {
         opacity: [0, 1],
-        translateX: [-10, 0],
+        translateX: [-15, 0],
+        scale: [0.95, 1],
         duration: durations.fast,
-        delay: stagger(30, { start: 600 }),
+        delay: stagger(30, { start: 700 }),
         easing: animeEasings.smoothOut,
       });
     }
   }, [isJourneyVisible, prefersReducedMotion, journeyRef]);
 
+  const handleCardMouseEnter = (index: number) => {
+    if (prefersReducedMotion) return;
+
+    const card = cardRefs.current[index];
+    const glow = glowRefs.current[index];
+    if (!card) return;
+
+    anime(card, {
+      translateY: -10,
+      scale: 1.03,
+      duration: durations.normal,
+      easing: animeEasings.appleEaseOut,
+    });
+
+    const glowColors = [
+      "rgba(0, 255, 255, 0.2)",
+      "rgba(0, 255, 0, 0.2)",
+      "rgba(168, 85, 247, 0.2)",
+    ];
+
+    anime(card, {
+      boxShadow: [
+        "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+        `0 20px 40px -10px ${glowColors[index]}`,
+      ],
+      duration: durations.normal,
+      easing: animeEasings.smoothOut,
+    });
+
+    if (glow) {
+      anime(glow, {
+        opacity: [0, 0.4],
+        scale: [0.9, 1.1],
+        duration: durations.normal,
+        easing: animeEasings.smoothOut,
+      });
+    }
+
+    const bullets = card.querySelectorAll("li");
+    anime(bullets, {
+      translateX: [0, 3],
+      duration: durations.fast,
+      delay: stagger(20),
+      easing: animeEasings.smoothOut,
+    });
+  };
+
+  const handleCardMouseLeave = (index: number) => {
+    if (prefersReducedMotion) return;
+
+    const card = cardRefs.current[index];
+    const glow = glowRefs.current[index];
+    if (!card) return;
+
+    anime(card, {
+      translateY: 0,
+      scale: 1,
+      duration: durations.normal,
+      easing: animeEasings.appleEaseOut,
+    });
+
+    anime(card, {
+      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+      duration: durations.normal,
+      easing: animeEasings.smoothOut,
+    });
+
+    if (glow) {
+      anime(glow, {
+        opacity: 0,
+        scale: 0.9,
+        duration: durations.normal,
+        easing: animeEasings.smoothOut,
+      });
+    }
+
+    const bullets = card.querySelectorAll("li");
+    anime(bullets, {
+      translateX: 0,
+      duration: durations.fast,
+      delay: stagger(20),
+      easing: animeEasings.smoothOut,
+    });
+  };
+
   const learningHighlights = [
     {
       title: "What I Learned",
-      icon: "🎓",
       items: [
         "Building production-ready AI applications with LangChain",
         "Implementing RAG pipelines for intelligent document retrieval",
@@ -432,7 +533,6 @@ function LearningJourneySection() {
     },
     {
       title: "Course Highlights",
-      icon: "⭐",
       items: [
         "Weekly hands-on projects with real-world applications",
         "Expert mentorship from industry professionals",
@@ -443,7 +543,6 @@ function LearningJourneySection() {
     },
     {
       title: "What I Enjoyed Most",
-      icon: "💡",
       items: [
         "Creating the SQL-Ball contest entry with innovative features",
         "Solving complex problems with AI-driven solutions",
@@ -466,35 +565,63 @@ function LearningJourneySection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {learningHighlights.map((section) => (
-          <div
-            key={section.title}
-            className="journey-card bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-green-500/30 hover:shadow-lg hover:shadow-green-500/10 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
-            style={{ opacity: 0 }}
-            onMouseEnter={(e) => {
-              const icon = e.currentTarget.querySelector(".card-icon");
-              if (icon) {
-                anime(icon, {
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1],
-                  duration: durations.fast,
-                  easing: animeEasings.smoothOut,
-                });
-              }
-            }}
-          >
-            <div className="card-icon text-4xl mb-4 transition-transform duration-300">{section.icon}</div>
-            <h3 className="text-xl font-semibold text-green-400 mb-6 group-hover:text-cyan-400 transition-colors duration-300">{section.title}</h3>
-            <ul className="space-y-3">
-              {section.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="flex items-start group/item" style={{ opacity: 0 }}>
-                  <span className="text-cyan-400 mr-2 mt-1 group-hover/item:text-green-400 transition-colors duration-300">•</span>
-                  <span className="text-gray-300 text-sm leading-relaxed group-hover/item:text-gray-100 transition-colors duration-300">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {learningHighlights.map((section, cardIndex) => {
+          const borderColors = [
+            "border-cyan-400/30",
+            "border-green-400/30",
+            "border-purple-400/30",
+          ];
+          const glowColors = [
+            "bg-cyan-500/20",
+            "bg-green-500/20",
+            "bg-purple-500/20",
+          ];
+          const titleColors = [
+            "text-cyan-400 group-hover:text-cyan-300",
+            "text-green-400 group-hover:text-green-300",
+            "text-purple-400 group-hover:text-purple-300",
+          ];
+
+          return (
+            <div
+              key={section.title}
+              ref={(el) => {
+                cardRefs.current[cardIndex] = el;
+              }}
+              onMouseEnter={() => handleCardMouseEnter(cardIndex)}
+              onMouseLeave={() => handleCardMouseLeave(cardIndex)}
+              className="journey-card relative overflow-hidden bg-gradient-to-br from-gray-900/70 via-gray-800/50 to-gray-900/70 backdrop-blur-md border border-gray-700/50 rounded-3xl p-10 cursor-pointer group"
+              style={{
+                opacity: 0,
+                perspective: "1000px",
+              }}
+            >
+              <div
+                ref={(el) => {
+                  glowRefs.current[cardIndex] = el;
+                }}
+                className={`absolute inset-0 ${glowColors[cardIndex]} blur-2xl opacity-0 -z-10`}
+                style={{ transform: "scale(0.9)" }}
+              />
+
+              <div className={`absolute top-0 left-0 right-0 h-1 ${borderColors[cardIndex]} rounded-t-3xl`} />
+
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-3xl" />
+
+              <h3 className={`text-xl font-semibold mb-6 transition-all duration-300 ${titleColors[cardIndex]}`}>
+                {section.title}
+              </h3>
+              <ul className="space-y-3">
+                {section.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start group/item" style={{ opacity: 0 }}>
+                    <span className="text-cyan-400 mr-3 mt-1 group-hover/item:text-green-400 transition-colors duration-300 font-bold">•</span>
+                    <span className="text-gray-300 text-sm leading-relaxed group-hover/item:text-gray-100 transition-colors duration-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </div>
 
     </section>

@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Portfolio Dashboard meta-project showcase page highlighting this website
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -86,10 +92,9 @@ export default function PortfolioDashboardPage() {
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
           <div className="inline-flex items-center justify-center mb-4">
             <Monitor className="text-green-400 mr-3" size={32} />
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
               Portfolio Dashboard
             </h1>
-            <Sparkles className="text-cyan-400 ml-3" size={32} />
           </div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Interactive AI course portfolio showcasing projects and learning journey
@@ -201,8 +206,8 @@ export default function PortfolioDashboardPage() {
                 borderColor: "border-yellow-500/30"
               },
               {
-                title: "Performance Optimized",
-                description: "Fast loading times with Next.js optimizations",
+                title: "Performance Optimised",
+                description: "Fast loading times with Next.js optimisations",
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },
@@ -285,7 +290,7 @@ export default function PortfolioDashboardPage() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Custom Matrix rain effect with WebGL optimization
+                  Custom Matrix rain effect with WebGL optimisation
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
@@ -319,11 +324,11 @@ export default function PortfolioDashboardPage() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Optimized bundle splitting and lazy loading
+                  Optimised bundle splitting and lazy loading
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Image optimization with Next.js Image component
+                  Image optimisation with Next.js Image component
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>

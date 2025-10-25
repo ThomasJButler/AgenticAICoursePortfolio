@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Animation utilities and preset configurations for Anime.js library
+ */
+
 import { animate as anime, stagger, createTimeline, utils, JSAnimation, FunctionValue, TargetsParam } from 'animejs';
 import { animeEasings, durations } from './easings';
 
@@ -13,9 +19,19 @@ export interface AnimationConfig {
   [key: string]: unknown;
 }
 
+/**
+ * Manages named animations with create, play, pause, and destroy operations
+ * Provides a centralised way to control multiple animations in an application
+ */
 export class AnimationController {
   private animations: Map<string, JSAnimation> = new Map();
 
+  /**
+   * Creates and registers a new animation with given configuration
+   * @param {string} name - Unique identifier for this animation
+   * @param {AnimationConfig} config - Anime.js configuration
+   * @return {JSAnimation} Created animation instance
+   */
   create(name: string, config: AnimationConfig): JSAnimation {
     const { targets, ...params } = config;
     const animation = anime(targets as TargetsParam, {

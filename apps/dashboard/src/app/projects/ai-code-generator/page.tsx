@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description AI Code Generator project showcase page with animated features and gallery
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -86,10 +92,9 @@ export default function AICodeGeneratorPage() {
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
           <div className="inline-flex items-center justify-center mb-4">
             <Code2 className="text-green-400 mr-3" size={32} />
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
               AI Code Generator
             </h1>
-            <Sparkles className="text-cyan-400 ml-3" size={32} />
           </div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Generate production-ready code with AI assistance
@@ -201,8 +206,8 @@ export default function AICodeGeneratorPage() {
                 borderColor: "border-yellow-500/30"
               },
               {
-                title: "Code Quality Optimization",
-                description: "Best practices enforcement and performance optimization",
+                title: "Code Quality Optimisation",
+                description: "Best practices enforcement and performance optimisation",
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },

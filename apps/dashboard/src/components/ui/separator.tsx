@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Separator component for visual dividers between content sections
+ */
+
 "use client"
 
 import * as React from "react"

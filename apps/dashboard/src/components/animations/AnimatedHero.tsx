@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Hero section with animated title, subtitle, and floating particle effects
+ */
+
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
@@ -198,7 +204,7 @@ export default function AnimatedHero() {
   };
 
   return (
-    <section id="hero" className="container mx-auto px-4 py-16 text-center pt-28 relative">
+    <section id="hero" className="container mx-auto px-4 pb-0 text-center pt-28 relative">
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
       
       <h1 
@@ -209,12 +215,12 @@ export default function AnimatedHero() {
         AI Course Portfolio
       </h1>
       
-      <p 
+      <p
         ref={subtitleRef}
         className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
         style={{ opacity: 0 }}
       >
-        Mastering Generative AI & Agents for Developers
+        CodeCademy Bootcamp | Mastering Generative AI & Agents for Developers
       </p>
       
       <div
@@ -234,22 +240,6 @@ export default function AnimatedHero() {
           >
             View Projects
           </Button>
-          <Button
-            variant="outline"
-            className="border-green-500 text-green-500 hover:bg-green-500/10 transform-gpu"
-            style={{ opacity: 0 }}
-            onMouseEnter={handleButtonHover}
-            onMouseLeave={handleButtonLeave}
-            onClick={handleButtonClick}
-          >
-            <Link href="https://github.com/ThomasJButler" target="_blank">
-              GitHub
-            </Link>
-          </Button>
-        </div>
-
-        {/* Certificate Button */}
-        <div className="mt-2">
           <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
             <Button
               variant="ghost"

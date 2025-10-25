@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description SQL-Ball project showcase page with football analytics demonstration
+ */
+
 "use client";
 
 import Link from "next/link";
@@ -86,10 +92,9 @@ export default function SQLBallPage() {
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
           <div className="inline-flex items-center justify-center mb-4">
             <Database className="text-green-400 mr-3" size={32} />
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
+            <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
               SQL-Ball
             </h1>
-            <Sparkles className="text-cyan-400 ml-3" size={32} />
           </div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Football data analytics with natural language queries and AI insights
@@ -125,8 +130,8 @@ export default function SQLBallPage() {
               and predictive modeling using Supabase for real-time data processing.
             </p>
             <p className="text-gray-300">
-              This contest-winning project demonstrates advanced natural language to SQL conversion,
-              real-time database integration, and sophisticated sports data visualization techniques
+              This project demonstrates advanced natural language to SQL conversion,
+              real-time database integration, and sophisticated sports data visualisation techniques
               to create an intuitive analytics platform for football enthusiasts.
             </p>
           </div>
@@ -147,7 +152,7 @@ export default function SQLBallPage() {
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">Frontend:</strong> React, TypeScript, D3.js visualizations
+                  <strong className="text-white">Frontend:</strong> React, TypeScript, D3.js visualisations
                 </span>
               </div>
               <div className="flex items-center">
@@ -325,7 +330,7 @@ export default function SQLBallPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Interactive data visualizations with D3.js
+                  Interactive data visualisations with D3.js
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
