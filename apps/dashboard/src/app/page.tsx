@@ -427,7 +427,6 @@ function LearningJourneySection() {
   const learningHighlights = [
     {
       title: "What I Learned",
-      icon: "🎓",
       items: [
         "Building production-ready AI applications with LangChain",
         "Implementing RAG pipelines for intelligent document retrieval",
@@ -438,7 +437,6 @@ function LearningJourneySection() {
     },
     {
       title: "Course Highlights",
-      icon: "⭐",
       items: [
         "Weekly hands-on projects with real-world applications",
         "Expert mentorship from industry professionals",
@@ -449,7 +447,6 @@ function LearningJourneySection() {
     },
     {
       title: "What I Enjoyed Most",
-      icon: "💡",
       items: [
         "Creating the SQL-Ball contest entry with innovative features",
         "Solving complex problems with AI-driven solutions",
@@ -477,19 +474,7 @@ function LearningJourneySection() {
             key={section.title}
             className="journey-card bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-green-500/30 hover:shadow-lg hover:shadow-green-500/10 hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
             style={{ opacity: 0 }}
-            onMouseEnter={(e) => {
-              const icon = e.currentTarget.querySelector(".card-icon");
-              if (icon) {
-                anime(icon, {
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1],
-                  duration: durations.fast,
-                  easing: animeEasings.smoothOut,
-                });
-              }
-            }}
           >
-            <div className="card-icon text-4xl mb-4 transition-transform duration-300">{section.icon}</div>
             <h3 className="text-xl font-semibold text-green-400 mb-6 group-hover:text-cyan-400 transition-colors duration-300">{section.title}</h3>
             <ul className="space-y-3">
               {section.items.map((item, itemIndex) => (
