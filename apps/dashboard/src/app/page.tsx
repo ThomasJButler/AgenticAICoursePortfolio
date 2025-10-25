@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Main portfolio homepage showcasing AI projects with animated components
+ */
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -144,7 +150,7 @@ export default function Home() {
           >
             <ContestGlow />
             <h2 className="text-3xl font-bold mb-4 text-green-400" style={{ opacity: 0 }}>
-              🏆 Contest Entry: SQL-Ball
+              Contest Entry: SQL-Ball
             </h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto" style={{ opacity: 0 }}>
               Football data analytics with natural language queries, AI-powered insights,

@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description SQL-Ball project showcase page with football analytics demonstration
+ */
+
 "use client";
 
 import Link from "next/link";

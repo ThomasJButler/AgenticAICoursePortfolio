@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Main navigation bar with scroll detection, mobile menu, and progress indicator
+ */
+
 "use client";
 
 import { useEffect, useState } from "react";

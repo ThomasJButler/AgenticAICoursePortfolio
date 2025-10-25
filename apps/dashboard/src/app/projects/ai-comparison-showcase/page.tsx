@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description AI Comparison Showcase project page demonstrating multi-model response comparison
+ */
+
 "use client";
 
 import Link from "next/link";

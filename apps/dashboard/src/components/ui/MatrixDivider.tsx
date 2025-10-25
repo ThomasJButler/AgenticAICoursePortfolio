@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Decorative divider component with animated variants (default, glow, dots)
+ */
+
 "use client";
 
 import { useEffect, useRef } from 'react';

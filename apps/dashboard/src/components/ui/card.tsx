@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Card layout component with header, footer, title, and description support
+ */
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"

@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Portfolio Dashboard meta-project showcase page highlighting this website
+ */
+
 "use client";
 
 import Link from "next/link";

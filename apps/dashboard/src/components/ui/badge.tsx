@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Badge component for labelling and categorising content
+ */
+
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 

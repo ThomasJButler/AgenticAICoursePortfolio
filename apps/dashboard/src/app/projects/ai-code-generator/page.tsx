@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description AI Code Generator project showcase page with animated features and gallery
+ */
+
 "use client";
 
 import Link from "next/link";

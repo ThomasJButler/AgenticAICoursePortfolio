@@ -1,3 +1,9 @@
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description Hero section with animated title, subtitle, and floating particle effects
+ */
+
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";

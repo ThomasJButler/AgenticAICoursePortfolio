@@ -1,4 +1,10 @@
-import { useEffect, useRef, useCallback } from 'react';
+/**
+ * @author Tom Butler
+ * @date 2025-10-25
+ * @description React hooks for Anime.js animation lifecycle and control
+ */
+
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { animate as anime, stagger, JSAnimation, utils, TargetsParam } from 'animejs';
 import { AnimationController, AnimationConfig } from '@/lib/animations';
 import { useReducedMotion } from './useReducedMotion';
@@ -16,6 +22,14 @@ interface UseAnimationOptions {
   respectReducedMotion?: boolean;
 }
 
+/**
+ * Creates and manages a single element animation with scroll trigger support
+ * Automatically respects prefers-reduced-motion settings
+ * @template T - HTML element type
+ * @param {AnimationConfig} config - Anime.js animation configuration
+ * @param {UseAnimationOptions} options - Hook behaviour options
+ * @return {Object} Control interface with ref, play/pause/restart/seek, and visibility state
+ */
 export function useAnimation<T extends HTMLElement = HTMLElement>(
   config: AnimationConfig,
   options: UseAnimationOptions = {}
@@ -142,6 +156,11 @@ export function useAnimation<T extends HTMLElement = HTMLElement>(
   };
 }
 
+/**
+ * Provides a reusable animation controller instance for managing named animations
+ * Automatically cleans up on unmount
+ * @return {AnimationController} Controller with create, play, pause, restart, destroy methods
+ */
 export function useAnimationController(): AnimationController {
   const controllerRef = useRef<AnimationController | null>(null);
 
@@ -156,6 +175,11 @@ export function useAnimationController(): AnimationController {
   return controllerRef.current || new AnimationController();
 }
 
+/**
+ * Tracks scroll progress as fraction from 0 (top) to 1 (bottom)
+ * Useful for parallax and progress-based animations
+ * @return {number} Scroll progress between 0 and 1
+ */
 export function useScrollProgress(): number {
   const [progress, setProgress] = useState(0);
 
@@ -178,6 +202,11 @@ export function useScrollProgress(): number {
   return progress;
 }
 
+/**
+ * Provides current mouse position for interactive animations
+ * Updates on mouse move
+ * @return {Object} Current x and y coordinates in pixels
+ */
 export function useMousePosition(): { x: number; y: number } {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -196,8 +225,15 @@ export function useMousePosition(): { x: number; y: number } {
   return position;
 }
 
-import { useState } from 'react';
-
+/**
+ * Manages staggered animations across multiple elements
+ * Automatically applies stagger delay to child elements
+ * @template T - HTML element type
+ * @param {AnimationConfig} config - Base animation configuration
+ * @param {number} staggerDelay - Delay between each element in milliseconds
+ * @param {UseAnimationOptions} options - Hook behaviour options
+ * @return {Object} Refs array with addRef method, and play/pause/restart controls
+ */
 export function useStaggeredAnimation<T extends HTMLElement = HTMLElement>(
   config: AnimationConfig,
   staggerDelay: number = 100,
