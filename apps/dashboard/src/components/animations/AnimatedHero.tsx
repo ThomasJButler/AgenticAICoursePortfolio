@@ -240,22 +240,6 @@ export default function AnimatedHero() {
           >
             View Projects
           </Button>
-          <Button
-            variant="outline"
-            className="border-green-500 text-green-500 hover:bg-green-500/10 transform-gpu"
-            style={{ opacity: 0 }}
-            onMouseEnter={handleButtonHover}
-            onMouseLeave={handleButtonLeave}
-            onClick={handleButtonClick}
-          >
-            <Link href="https://github.com/ThomasJButler" target="_blank">
-              GitHub
-            </Link>
-          </Button>
-        </div>
-
-        {/* Certificate Button */}
-        <div className="mt-2">
           <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
             <Button
               variant="ghost"

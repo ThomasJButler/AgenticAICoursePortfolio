@@ -130,7 +130,7 @@ export default function Navigation() {
                 <Globe size={18} />
               </Link>
               <Link
-                href="https://github.com/ThomasJButler"
+                href="https://github.com/ThomasJButler/MasteringAICoursePortfolio"
                 target="_blank"
                 className="text-gray-400 hover:text-green-400 transition-colors"
                 aria-label="GitHub Profile"

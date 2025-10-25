@@ -4,6 +4,8 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 
 **Live:** https://www.aitomatic.io/
 
+![Portfolio Homepage](showcaseimage.png)
+
 ## Projects
 
 ### Completed
@@ -22,6 +24,8 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 - Football data analytics platform with natural language queries
 - LangChain to SQL conversion with PostgreSQL backend
 - Live: https://sql-ball.vercel.app/
+
+![SQL-Ball Project](showcaseimage2.png)
 
 ### In Development
 
