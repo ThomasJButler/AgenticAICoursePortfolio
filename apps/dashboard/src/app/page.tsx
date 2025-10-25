@@ -154,7 +154,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto" style={{ opacity: 0 }}>
               Football data analytics with natural language queries, AI-powered insights,
-              and interactive performance visualizations.
+              and interactive performance visualisations.
             </p>
             <Link href="/projects/sql-ball">
               <Button

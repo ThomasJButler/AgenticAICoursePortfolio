@@ -215,12 +215,12 @@ export default function AnimatedHero() {
         AI Course Portfolio
       </h1>
       
-      <p 
+      <p
         ref={subtitleRef}
         className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
         style={{ opacity: 0 }}
       >
-        Mastering Generative AI & Agents for Developers
+        CodeCademy Bootcamp | Mastering Generative AI & Agents for Developers
       </p>
       
       <div

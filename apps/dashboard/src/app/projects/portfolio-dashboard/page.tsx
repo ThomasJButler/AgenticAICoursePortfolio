@@ -206,8 +206,8 @@ export default function PortfolioDashboardPage() {
                 borderColor: "border-yellow-500/30"
               },
               {
-                title: "Performance Optimized",
-                description: "Fast loading times with Next.js optimizations",
+                title: "Performance Optimised",
+                description: "Fast loading times with Next.js optimisations",
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },
@@ -290,7 +290,7 @@ export default function PortfolioDashboardPage() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Custom Matrix rain effect with WebGL optimization
+                  Custom Matrix rain effect with WebGL optimisation
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
@@ -324,11 +324,11 @@ export default function PortfolioDashboardPage() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Optimized bundle splitting and lazy loading
+                  Optimised bundle splitting and lazy loading
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Image optimization with Next.js Image component
+                  Image optimisation with Next.js Image component
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>

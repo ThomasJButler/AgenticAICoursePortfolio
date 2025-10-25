@@ -206,8 +206,8 @@ export default function AICodeGeneratorPage() {
                 borderColor: "border-yellow-500/30"
               },
               {
-                title: "Code Quality Optimization",
-                description: "Best practices enforcement and performance optimization",
+                title: "Code Quality Optimisation",
+                description: "Best practices enforcement and performance optimisation",
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },

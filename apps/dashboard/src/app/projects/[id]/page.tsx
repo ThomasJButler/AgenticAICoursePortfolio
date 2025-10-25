@@ -24,7 +24,7 @@ const projectDetails = {
       "Real-time streaming responses with Flask and React integration",
       "Automated test generation and validation patterns",
       "Documentation generation with AI-powered explanations",
-      "Performance optimization for production-ready code output"
+      "Performance optimisation for production-ready code output"
     ],
     features: [
       "Natural language to code generation with multiple programming languages",
@@ -33,7 +33,7 @@ const projectDetails = {
       "Real-time code streaming and syntax highlighting",
       "Multi-language support (Python, JavaScript, Java, C#, etc.)",
       "Framework-specific code templates and patterns",
-      "Code quality optimization and best practices enforcement",
+      "Code quality optimisation and best practices enforcement",
       "Responsive design with mobile and desktop support"
     ],
     screenshots: {
@@ -88,7 +88,7 @@ const projectDetails = {
     features: [
       "Automated pull request reviews",
       "Security vulnerability detection",
-      "Performance optimization suggestions",
+      "Performance optimisation suggestions",
       "Code style consistency checking",
       "Git commit message improvement",
       "Refactoring recommendations",
@@ -111,7 +111,7 @@ const projectDetails = {
     status: "upcoming",
     techStack: ["Pinecone", "OpenAI", "LangChain", "FastAPI", "React"],
     learnings: [
-      "Vector database design and optimization strategies",
+      "Vector database design and optimisation strategies",
       "Retrieval-Augmented Generation (RAG) implementation patterns",
       "Embedding generation and similarity search algorithms",
       "Document chunking and preprocessing techniques",
@@ -138,7 +138,7 @@ const projectDetails = {
   },
   "multi-agent-system": {
     title: "Multi-Agent System",
-    fullDescription: "A collaborative AI system where multiple specialized agents work together to solve complex tasks. Features real-time visualization of agent communication and decision-making processes.",
+    fullDescription: "A collaborative AI system where multiple specialised agents work together to solve complex tasks. Features real-time visualisation of agent communication and decision-making processes.",
     week: "Week 4",
     status: "upcoming",
     techStack: ["LangGraph", "Multiple LLMs", "WebSocket", "D3.js", "FastAPI"],
@@ -154,8 +154,8 @@ const projectDetails = {
       "Code agent for implementation tasks",
       "Review agent for quality assurance",
       "Orchestrator for task coordination",
-      "Real-time agent communication visualization",
-      "Task delegation optimization",
+      "Real-time agent communication visualisation",
+      "Task delegation optimisation",
       "Agent performance metrics dashboard",
       "Collaborative decision-making algorithms"
     ],
@@ -176,7 +176,7 @@ const projectDetails = {
     techStack: ["MCP", "GitHub Actions", "Docker", "Node.js", "Python"],
     learnings: [
       "Model Context Protocol (MCP) implementation and best practices",
-      "CI/CD pipeline automation with AI-driven optimizations",
+      "CI/CD pipeline automation with AI-driven optimisations",
       "Containerization strategies for AI development workflows",
       "Infrastructure as Code for scalable AI deployments",
       "Performance monitoring and alerting for production AI systems"
@@ -211,7 +211,7 @@ const projectDetails = {
       "Real-time database integration with Supabase",
       "Natural language to SQL for sports queries",
       "Predictive analytics with machine learning",
-      "Interactive sports data visualization techniques"
+      "Interactive sports data visualisation techniques"
     ],
     features: [
       "Natural language football statistics queries",
@@ -219,7 +219,7 @@ const projectDetails = {
       "Match prediction algorithms",
       "Team comparison and analysis tools",
       "Real-time match data integration",
-      "Interactive data visualizations",
+      "Interactive data visualisations",
       "Fantasy football insights",
       "Historical trend analysis"
     ],
@@ -261,7 +261,7 @@ const projectDetails = {
       "Query Processing Flow",
       "API to Supabase Integration"
     ],
-    implementation: "Fully functional application with advanced NLP-to-SQL conversion, real-time data processing, and intelligent query optimization. See implementation highlights below for technical details.",
+    implementation: "Fully functional application with advanced NLP-to-SQL conversion, real-time data processing, and intelligent query optimisation. See implementation highlights below for technical details.",
     github: "https://github.com/ThomasJButler/sql-ball",
     demo: "https://sql-ball.vercel.app/"
   },
@@ -272,7 +272,7 @@ const projectDetails = {
     status: "completed",
     techStack: ["Next.js 15", "Tailwind CSS", "Anime.js", "Framer Motion", "TypeScript"],
     learnings: [
-      "Next.js 15 App Router and server-side rendering optimizations",
+      "Next.js 15 App Router and server-side rendering optimisations",
       "Advanced CSS animations and performance considerations",
       "TypeScript strict mode and type safety best practices",
       "Responsive design patterns for modern web applications",

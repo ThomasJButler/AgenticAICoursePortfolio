@@ -131,7 +131,7 @@ export default function SQLBallPage() {
             </p>
             <p className="text-gray-300">
               This project demonstrates advanced natural language to SQL conversion,
-              real-time database integration, and sophisticated sports data visualization techniques
+              real-time database integration, and sophisticated sports data visualisation techniques
               to create an intuitive analytics platform for football enthusiasts.
             </p>
           </div>
@@ -152,7 +152,7 @@ export default function SQLBallPage() {
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">Frontend:</strong> React, TypeScript, D3.js visualizations
+                  <strong className="text-white">Frontend:</strong> React, TypeScript, D3.js visualisations
                 </span>
               </div>
               <div className="flex items-center">
@@ -330,7 +330,7 @@ export default function SQLBallPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Interactive data visualizations with D3.js
+                  Interactive data visualisations with D3.js
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
