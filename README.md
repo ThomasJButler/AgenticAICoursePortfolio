@@ -2,7 +2,7 @@
 
 Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - September 2025). Demonstrates practical application of LangChain, RAG systems, multi-agent architectures, and modern AI development patterns.
 
-**Live:** https://www.aitomatic.io/
+**Live:** https://mastering-ai-course-portfolio-dashb.vercel.app/
 
 ![Portfolio Homepage](showcaseimage.png)
 
