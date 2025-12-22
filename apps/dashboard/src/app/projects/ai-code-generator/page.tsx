@@ -101,7 +101,7 @@ export default function AICodeGeneratorPage() {
           </p>
 
           <div className="flex gap-4 justify-center mt-6">
-            <Link href="https://ai-code-generator-rouge.vercel.app/" target="_blank">
+            <Link href="https://theaigenerator.vercel.app/" target="_blank">
               <Button className="bg-green-500 hover:bg-green-600 text-black font-semibold">
                 <ExternalLink className="mr-2" size={18} />
                 View Live Site
@@ -345,7 +345,7 @@ export default function AICodeGeneratorPage() {
         {/* CTA Section */}
         <div className="text-center py-8">
           <div className="flex gap-4 justify-center">
-            <Link href="https://ai-code-generator-rouge.vercel.app/" target="_blank">
+            <Link href="https://theaigenerator.vercel.app/" target="_blank">
               <Button size="lg" className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-black font-bold">
                 <ExternalLink className="mr-2" size={20} />
                 Try the Live Demo
