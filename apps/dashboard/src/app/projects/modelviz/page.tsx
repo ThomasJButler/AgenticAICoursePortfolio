@@ -1,14 +1,14 @@
 /**
  * @author Tom Butler
- * @date 2025-10-25
- * @description AI Comparison Showcase project page demonstrating multi-model response comparison
+ * @date 2025-12-22
+ * @description ModelViz project showcase page - Interactive analytics platform for AI models
  */
 
 "use client";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Github, ExternalLink, Code2, Sparkles, Zap } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Code2, Sparkles, Zap, BarChart3, Settings } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { animate as anime, stagger } from 'animejs';
 import { animeEasings, durations } from "@/lib/easings";
@@ -18,7 +18,7 @@ import Footer from "@/components/layout/Footer";
 import MatrixRain from "@/components/animations/MatrixRain";
 import MatrixDivider from "@/components/ui/MatrixDivider";
 
-export default function AIComparisonShowcasePage() {
+export default function ModelVizPage() {
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
@@ -91,13 +91,13 @@ export default function AIComparisonShowcasePage() {
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
           <div className="inline-flex items-center justify-center mb-4">
-            <Sparkles className="text-green-400 mr-3" size={32} />
+            <BarChart3 className="text-green-400 mr-3" size={32} />
             <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
-              AI Comparison Showcase
+              ModelViz
             </h1>
           </div>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Compare responses from multiple AI models side-by-side in real-time
+            Interactive analytics platform for comparing AI models across multiple providers with real-time performance metrics, cost analysis, and 3D visualisations
           </p>
 
           <div className="flex gap-4 justify-center mt-6">
@@ -107,7 +107,7 @@ export default function AIComparisonShowcasePage() {
                 View Live Site
               </Button>
             </Link>
-            <Link href="https://github.com/ThomasJButler/AI-Comparison-Showcase-" target="_blank">
+            <Link href="https://github.com/ThomasJButler/ModelViz" target="_blank">
               <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
                 <Github className="mr-2" size={18} />
                 View on GitHub
@@ -121,17 +121,17 @@ export default function AIComparisonShowcasePage() {
           {/* Project Overview */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6" style={{ opacity: 0 }}>
             <h2 className="text-2xl font-semibold text-green-400 mb-4 flex items-center">
-              <Code2 className="mr-2" size={24} />
-              Project Overview
+              <Sparkles className="mr-2" size={24} />
+              What It Does
             </h2>
             <p className="text-gray-300 mb-4">
-              A cutting-edge web application that allows users to compare responses from multiple AI models
-              simultaneously. Built with modern web technologies to provide real-time comparisons and insights
-              into how different AI models interpret and respond to the same prompts.
+              ModelViz enables you to compare OpenAI, Anthropic, Google (Gemini), and Perplexity models side by side. 
+              Test prompts across multiple models simultaneously, track usage metrics, analyse costs, and visualise 
+              API performance with an immersive cyberpunk-themed interface.
             </p>
             <p className="text-gray-300">
-              This project demonstrates advanced API integration, real-time data handling, and sophisticated
-              UI/UX design patterns to create an intuitive comparison platform for AI enthusiasts and developers.
+              The platform provides real-time analytics, cost tracking, and 3D visualisations to help developers and 
+              researchers make informed decisions about which AI models to use for their projects.
             </p>
           </div>
 
@@ -145,25 +145,31 @@ export default function AIComparisonShowcasePage() {
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">Frontend:</strong> Next.js 14, TypeScript, Tailwind CSS
+                  <strong className="text-white">Framework:</strong> Next.js 16 (App Router, Turbopack), React 19
                 </span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">AI Models:</strong> OpenAI GPT-4, Claude 3, Gemini Pro
+                  <strong className="text-white">Language:</strong> TypeScript (strict mode)
                 </span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">State Management:</strong> Zustand, TanStack Query
+                  <strong className="text-white">3D Graphics:</strong> @react-three/fiber, @react-three/drei
                 </span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3"></div>
                 <span className="text-gray-300">
-                  <strong className="text-white">Deployment:</strong> Vercel, Edge Functions
+                  <strong className="text-white">UI/Charts:</strong> Radix UI, shadcn/ui, Recharts, Monaco Editor
+                </span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                <span className="text-gray-300">
+                  <strong className="text-white">Styling:</strong> Tailwind CSS, Framer Motion 12
                 </span>
               </div>
             </div>
@@ -173,46 +179,101 @@ export default function AIComparisonShowcasePage() {
         {/* Divider */}
         <MatrixDivider variant="glow" />
 
+        {/* Key Pages Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-semibold text-center text-white mb-8">
+            Key Pages
+          </h2>
+          <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: "Playground",
+                description: "Test AI models with text, JSON, or code input",
+                icon: Code2,
+                color: "from-green-500/20 to-green-600/10",
+                borderColor: "border-green-500/30"
+              },
+              {
+                title: "Dashboard",
+                description: "Real-time API analytics with multiple views",
+                icon: BarChart3,
+                color: "from-cyan-500/20 to-cyan-600/10",
+                borderColor: "border-cyan-500/30"
+              },
+              {
+                title: "Analytics",
+                description: "Advanced insights and predictive analytics",
+                icon: Sparkles,
+                color: "from-purple-500/20 to-purple-600/10",
+                borderColor: "border-purple-500/30"
+              },
+              {
+                title: "Settings",
+                description: "API key management with import/export",
+                icon: Settings,
+                color: "from-yellow-500/20 to-yellow-600/10",
+                borderColor: "border-yellow-500/30"
+              }
+            ].map((page, index) => {
+              const Icon = page.icon;
+              return (
+                <div
+                  key={index}
+                  className={`bg-gradient-to-br ${page.color} border ${page.borderColor} rounded-lg p-6 hover:scale-105 transition-transform duration-300`}
+                  style={{ opacity: 0 }}
+                >
+                  <Icon className="text-white mb-3" size={28} />
+                  <h3 className="text-lg font-semibold text-white mb-2">{page.title}</h3>
+                  <p className="text-sm text-gray-400">{page.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <MatrixDivider variant="dots" />
+
         {/* Key Features */}
         <div className="mb-12">
           <h2 className="text-3xl font-semibold text-center text-white mb-8">
             Key Features
           </h2>
-          <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Real-time Comparison",
-                description: "Compare AI responses as they stream in real-time",
+                title: "Multi-Provider Support",
+                description: "Compare OpenAI, Anthropic, Google Gemini, and Perplexity models",
                 color: "from-green-500/20 to-green-600/10",
                 borderColor: "border-green-500/30"
               },
               {
-                title: "Multiple AI Models",
-                description: "Support for GPT-4, Claude, Gemini, and more",
+                title: "Real-time Analytics",
+                description: "Track API performance, response times, and usage patterns",
                 color: "from-cyan-500/20 to-cyan-600/10",
                 borderColor: "border-cyan-500/30"
               },
               {
-                title: "Response Analytics",
-                description: "Analyze response times, token usage, and costs",
+                title: "Cost Analysis",
+                description: "Monitor and compare costs across different AI providers",
                 color: "from-purple-500/20 to-purple-600/10",
                 borderColor: "border-purple-500/30"
               },
               {
-                title: "Prompt Templates",
-                description: "Save and reuse prompt templates for consistency",
+                title: "3D Visualisations",
+                description: "Immersive cyberpunk-themed data visualisations with Three.js",
                 color: "from-yellow-500/20 to-yellow-600/10",
                 borderColor: "border-yellow-500/30"
               },
               {
-                title: "Export Results",
-                description: "Export comparisons as JSON, CSV, or PDF",
+                title: "Demo Mode",
+                description: "Test the interface without API keys",
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },
               {
-                title: "Dark Mode UI",
-                description: "Beautiful dark theme optimized for developers",
+                title: "Secure Storage",
+                description: "API keys stored securely in browser localStorage with 90-day retention",
                 color: "from-indigo-500/20 to-indigo-600/10",
                 borderColor: "border-indigo-500/30"
               }
@@ -220,12 +281,71 @@ export default function AIComparisonShowcasePage() {
               <div
                 key={index}
                 className={`bg-gradient-to-br ${feature.color} border ${feature.borderColor} rounded-lg p-6 hover:scale-105 transition-transform duration-300`}
-                style={{ opacity: 0 }}
               >
                 <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-400">{feature.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Divider */}
+        <MatrixDivider variant="glow" />
+
+        {/* Supported Models */}
+        <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-8 mb-12">
+          <h2 className="text-3xl font-semibold text-green-400 mb-6 text-center">
+            Supported AI Models
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">OpenAI</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  GPT-4o, GPT-4 Turbo
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  GPT-3.5, o1 models
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Anthropic</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Claude 3.5 Sonnet
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Claude 3 Opus & Haiku
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Google</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Gemini 2.0 Flash
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Gemini 1.5 Pro & Flash
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Perplexity</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Sonar models
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -246,14 +366,14 @@ export default function AIComparisonShowcasePage() {
               "https://res.cloudinary.com/depqttzlt/image/upload/v1737693677/Usage_Patterns_iw5j6a.png",
               "https://res.cloudinary.com/depqttzlt/image/upload/v1737694764/python_projects_cxbrnj.png"
             ]}
-            title="AI Comparison Showcase"
+            title="ModelViz"
             customCaptions={[
               "Building AI Model Integration",
               "AI Code Output Display",
-              "AI Model Comparison Interface",
-              "Particle Universe Visualization",
+              "Model Analytics Interface",
+              "3D Particle Universe Visualization",
               "Usage Patterns Analytics",
-              "Python Projects Dashboard"
+              "Dashboard Overview"
             ]}
           />
         </div>
@@ -268,19 +388,36 @@ export default function AIComparisonShowcasePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Performance</h3>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Performance & Architecture</h3>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Optimized API calls with request batching
+                  Turbopack for blazingly fast development
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Response caching for improved performance
+                  Bundle splitting for optimal loading performance
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Lazy loading and code splitting
+                  Edge-compatible API routes for global performance
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Data Management</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  LocalStorage & IndexedDB for client-side persistence
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  90-day data retention with automatic cleanup
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  API key import/export functionality
                 </li>
               </ul>
             </div>
@@ -289,15 +426,32 @@ export default function AIComparisonShowcasePage() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
+                  Cyberpunk-themed interface with 3D effects
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Monaco Editor for code input
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
                   Responsive design for all devices
                 </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-cyan-400 mb-3">Analytics & Insights</h3>
+              <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Keyboard shortcuts for power users
+                  Real-time API performance tracking
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">•</span>
-                  Accessibility-first development
+                  Cost comparison across providers
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">•</span>
+                  Predictive analytics for usage patterns
                 </li>
               </ul>
             </div>
@@ -316,7 +470,7 @@ export default function AIComparisonShowcasePage() {
                 Try the Live Demo
               </Button>
             </Link>
-            <Link href="https://github.com/ThomasJButler/AI-Comparison-Showcase-" target="_blank">
+            <Link href="https://github.com/ThomasJButler/ModelViz" target="_blank">
               <Button size="lg" variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
                 <Github className="mr-2" size={20} />
                 View Source Code
