@@ -193,14 +193,24 @@ interface Project {
 
 const mainProjects: Project[] = [
   {
-    id: "ai-comparison-showcase",
-    title: "AI Comparison Showcase",
-    description: "Compare responses from multiple AI models side-by-side in real-time",
+    id: "modelviz",
+    title: "ModelViz",
+    description: "Interactive analytics platform for comparing AI models across multiple providers with real-time performance metrics, cost analysis, and 3D visualisations",
     week: "Featured",
     status: "completed",
-    techStack: ["Next.js", "TypeScript", "Multiple AI APIs"],
-    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1754529216/aicomparison_xoherd.png",
+    techStack: ["Next.js 16", "React 19", "TypeScript", "Three.js", "Framer Motion"],
+    image: "/modelviz.png",
     demo: "https://ai-comparison-showcase.vercel.app",
+    githubUrl: "https://github.com/ThomasJButler/ModelViz",
+  },
+    {
+    id: "rag-chatbot",
+    title: "RAG Chatbot",
+    description: "Document-based Q&A system with semantic search and citations",
+    week: "Week 3",
+    status: "completed",
+    techStack: ["Pinecone", "OpenAI", "LangChain", "ChromaDB"],
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758053628/aicourseportfolio_pejlr2.png",
   },
   {
     id: "ai-code-generator",
@@ -210,7 +220,8 @@ const mainProjects: Project[] = [
     status: "completed",
     techStack: ["LangChain", "GPT-4o", "Python", "Flask", "React"],
     image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758201680/codegeneratorfrontend_jccy53.png",
-    demo: "https://ai-code-generator-rouge.vercel.app/",
+    demo: "https://theaigenerator.vercel.app/",
+    githubUrl: "https://github.com/ThomasJButler/AICodeGenerator",
   },
   {
     id: "sql-ball",
@@ -222,7 +233,17 @@ const mainProjects: Project[] = [
     image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758053629/generatedsql_yclpkb.png",
     demo: "https://sql-ball.vercel.app/",
   },
-  {
+    {
+    id: "reviewbot-protocol",
+    title: "ReviewBot Protocol",
+    description: "AI-powered GitHub PR reviews with automated code analysis and intelligent feedback",
+    week: "Week 2",
+    status: "completed",
+    techStack: ["Next.js 15", "FastAPI", "LangChain", "LangGraph", "PostgreSQL"],
+    image: "/rvp.png",
+    githubUrl: "https://github.com/ThomasJButler/ReviewBot-Protocol",
+  },
+    {
     id: "portfolio-dashboard",
     title: "Portfolio Dashboard",
     description: "Interactive AI course portfolio showcasing projects and learning journey",
@@ -235,26 +256,6 @@ const mainProjects: Project[] = [
 ];
 
 const projectsInDevelopment: Project[] = [
-  {
-    id: "git-review-assistant",
-    title: "Git Review Assistant",
-    description: "AI-powered code review system with automated PR feedback",
-    week: "Week 2",
-    status: "in-progress",
-    techStack: ["LangChain", "GitHub API", "FastAPI"],
-    progress: 90,
-    eta: "September 24th, 2025",
-  },
-  {
-    id: "rag-chatbot",
-    title: "RAG Chatbot",
-    description: "Document-based Q&A system with semantic search and citations",
-    week: "Week 3",
-    status: "in-progress",
-    techStack: ["Pinecone", "OpenAI", "LangChain"],
-    progress: 70,
-    eta: "September 30th, 2025",
-  },
   {
     id: "multi-agent-system",
     title: "Multi-Agent System",
@@ -698,7 +699,7 @@ function ProjectsInDevelopmentHeading() {
         className="text-4xl font-bold text-center mb-4 text-cyan-400"
         style={{ opacity: 0 }}
       >
-        Projects in Development
+        Upcoming
       </h2>
       <p
         ref={descRef}
