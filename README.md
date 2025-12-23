@@ -20,6 +20,11 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 - Automated test generation and documentation
 - Live: https://ai-code-generator-rouge.vercel.app/
 
+**Morpheus**
+- Intelligent document Q&A system with semantic search and citations
+- RAG pipeline with Pinecone vector database and Claude 3.5 Sonnet
+- Live: https://morpheusrag.vercel.app
+
 **SQL-Ball**
 - Football data analytics platform with natural language queries
 - LangChain to SQL conversion with PostgreSQL backend
@@ -30,7 +35,6 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 ### In Development
 
 - Git Review Assistant (automated PR reviews via LangChain)
-- RAG Chatbot (semantic search with Pinecone)
 - Multi-Agent System (LangGraph coordination)
 - Dev Workflow Agent (MCP integration for automation)
 

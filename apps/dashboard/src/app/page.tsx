@@ -77,21 +77,6 @@ export default function Home() {
               />
             ))}
           </div>
-
-          {/* Main to Development Projects Divider */}
-          <MatrixDivider variant="dots" />
-
-          {/* Projects in Development Section */}
-          <ProjectsInDevelopmentHeading />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {projectsInDevelopment.map((project, index) => (
-              <AnimatedProjectCard
-                key={project.id}
-                project={project}
-                index={index + mainProjects.length}
-              />
-            ))}
-          </div>
         </section>
 
         {/* Projects to Skills Divider */}
@@ -204,13 +189,15 @@ const mainProjects: Project[] = [
     githubUrl: "https://github.com/ThomasJButler/ModelViz",
   },
     {
-    id: "rag-chatbot",
-    title: "RAG Chatbot",
-    description: "Document-based Q&A system with semantic search and citations",
+    id: "morpheus",
+    title: "Morpheus",
+    description: "Intelligent document Q&A system with semantic search and source citations using RAG",
     week: "Week 3",
     status: "completed",
-    techStack: ["Pinecone", "OpenAI", "LangChain", "ChromaDB"],
+    techStack: ["Pinecone", "OpenAI", "LangChain", "FastAPI"],
     image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758053628/aicourseportfolio_pejlr2.png",
+    demo: "https://morpheusrag.vercel.app",
+    githubUrl: "https://github.com/ThomasJButler/Morpheus",
   },
   {
     id: "ai-code-generator",
@@ -254,30 +241,6 @@ const mainProjects: Project[] = [
     demo: "/",
   },
 ];
-
-const projectsInDevelopment: Project[] = [
-  {
-    id: "multi-agent-system",
-    title: "Multi-Agent System",
-    description: "Collaborative AI agents for complex task orchestration",
-    week: "Week 4",
-    status: "in-progress",
-    techStack: ["LangGraph", "Multiple LLMs", "WebSocket"],
-    progress: 5,
-    eta: "October 5th, 2025",
-  },
-  {
-    id: "workflow-agent",
-    title: "Dev Workflow Agent",
-    description: "Automate development workflows with MCP integration",
-    week: "Week 5",
-    status: "in-progress",
-    techStack: ["MCP", "GitHub Actions", "Docker"],
-    progress: 5,
-    eta: "October 12th, 2025",
-  },
-];
-
 
 function ContestGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -656,59 +619,6 @@ function MainProjectsHeading() {
     >
       Main Projects
     </h2>
-  );
-}
-
-function ProjectsInDevelopmentHeading() {
-  const [headerRef, isVisible] = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.3,
-    freezeOnceVisible: true,
-  });
-  const prefersReducedMotion = useReducedMotion();
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    if (isVisible && !prefersReducedMotion) {
-      if (titleRef.current) {
-        anime(titleRef.current, {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          duration: durations.normal,
-          delay: 300,
-          easing: animeEasings.smoothOut,
-        });
-      }
-
-      if (descRef.current) {
-        anime(descRef.current, {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          duration: durations.normal,
-          delay: 450,
-          easing: animeEasings.smoothOut,
-        });
-      }
-    }
-  }, [isVisible, prefersReducedMotion, headerRef]);
-
-  return (
-    <div ref={headerRef}>
-      <h2
-        ref={titleRef}
-        className="text-4xl font-bold text-center mb-4 text-cyan-400"
-        style={{ opacity: 0 }}
-      >
-        Upcoming
-      </h2>
-      <p
-        ref={descRef}
-        className="text-center text-gray-400 mb-12 max-w-2xl mx-auto"
-        style={{ opacity: 0 }}
-      >
-        Exciting projects coming soon! Each project is being carefully crafted to showcase advanced AI capabilities.
-      </p>
-    </div>
   );
 }
 
