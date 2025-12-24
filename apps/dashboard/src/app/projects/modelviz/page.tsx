@@ -8,7 +8,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Github, ExternalLink, Code2, Sparkles, Zap, BarChart3, Settings } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Settings, Code2, BarChart3, Sparkles, Layers, Activity, DollarSign, Box, Lock } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { animate as anime, stagger } from 'animejs';
 import { animeEasings, durations } from "@/lib/easings";
@@ -82,7 +82,7 @@ export default function ModelVizPage() {
         <div className="container mx-auto px-4 py-32">
         {/* Back Button */}
         <Link href="/">
-          <Button variant="ghost" className="mb-8 text-gray-400 hover:text-black hover:bg-green-400/20 border border-transparent hover:border-green-400/50">
+          <Button variant="ghost" className="mb-8 text-gray-400 hover:text-white hover:bg-green-400/20 border border-transparent hover:border-green-400/50">
             <ArrowLeft className="mr-2" size={16} />
             Back to Portfolio
           </Button>
@@ -90,12 +90,9 @@ export default function ModelVizPage() {
 
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
-          <div className="inline-flex items-center justify-center mb-4">
-            <BarChart3 className="text-green-400 mr-3" size={32} />
-            <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
-              ModelViz
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+            ModelViz
+          </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Interactive analytics platform for comparing AI models across multiple providers with real-time performance metrics, cost analysis, and 3D visualisations
           </p>
@@ -120,8 +117,7 @@ export default function ModelVizPage() {
         <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Project Overview */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6" style={{ opacity: 0 }}>
-            <h2 className="text-2xl font-semibold text-green-400 mb-4 flex items-center">
-              <Sparkles className="mr-2" size={24} />
+            <h2 className="text-2xl font-semibold text-green-400 mb-4">
               What It Does
             </h2>
             <p className="text-gray-300 mb-4">
@@ -137,8 +133,7 @@ export default function ModelVizPage() {
 
           {/* Technical Stack */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6" style={{ opacity: 0 }}>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4 flex items-center">
-              <Zap className="mr-2" size={24} />
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">
               Technical Stack
             </h2>
             <div className="space-y-3">
@@ -222,8 +217,10 @@ export default function ModelVizPage() {
                   className={`bg-gradient-to-br ${page.color} border ${page.borderColor} rounded-lg p-6 hover:scale-105 transition-transform duration-300`}
                   style={{ opacity: 0 }}
                 >
-                  <Icon className="text-white mb-3" size={28} />
-                  <h3 className="text-lg font-semibold text-white mb-2">{page.title}</h3>
+                  <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                    <Icon className="text-white" size={24} />
+                    {page.title}
+                  </h3>
                   <p className="text-sm text-gray-400">{page.description}</p>
                 </div>
               );
@@ -244,36 +241,42 @@ export default function ModelVizPage() {
               {
                 title: "Multi-Provider Support",
                 description: "Compare OpenAI, Anthropic, Google Gemini, and Perplexity models",
+                icon: Layers,
                 color: "from-green-500/20 to-green-600/10",
                 borderColor: "border-green-500/30"
               },
               {
                 title: "Real-time Analytics",
                 description: "Track API performance, response times, and usage patterns",
+                icon: Activity,
                 color: "from-cyan-500/20 to-cyan-600/10",
                 borderColor: "border-cyan-500/30"
               },
               {
                 title: "Cost Analysis",
                 description: "Monitor and compare costs across different AI providers",
+                icon: DollarSign,
                 color: "from-purple-500/20 to-purple-600/10",
                 borderColor: "border-purple-500/30"
               },
               {
                 title: "3D Visualisations",
                 description: "Immersive cyberpunk-themed data visualisations with Three.js",
+                icon: Box,
                 color: "from-yellow-500/20 to-yellow-600/10",
                 borderColor: "border-yellow-500/30"
               },
               {
                 title: "Demo Mode",
                 description: "Test the interface without API keys",
+                icon: Code2,
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },
               {
                 title: "Secure Storage",
                 description: "API keys stored securely in browser localStorage with 90-day retention",
+                icon: Lock,
                 color: "from-indigo-500/20 to-indigo-600/10",
                 borderColor: "border-indigo-500/30"
               }
@@ -282,7 +285,10 @@ export default function ModelVizPage() {
                 key={index}
                 className={`bg-gradient-to-br ${feature.color} border ${feature.borderColor} rounded-lg p-6 hover:scale-105 transition-transform duration-300`}
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                  <feature.icon className="text-white" size={24} />
+                  {feature.title}
+                </h3>
                 <p className="text-sm text-gray-400">{feature.description}</p>
               </div>
             ))}

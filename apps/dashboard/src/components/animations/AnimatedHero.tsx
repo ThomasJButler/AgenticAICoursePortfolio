@@ -226,35 +226,41 @@ export default function AnimatedHero() {
   };
 
   return (
-    <section id="hero" className="container mx-auto px-4 pb-0 text-center pt-24 md:pt-28 relative min-h-[60vh] flex flex-col justify-center">
+    <section id="hero" className="container mx-auto px-4 pb-16 text-center pt-32 md:pt-40 relative min-h-[75vh] flex flex-col justify-center items-center overflow-hidden">
+      {/* Radial Gradient Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-green-500/10 via-cyan-500/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-emerald-500/8 to-transparent rounded-full blur-2xl" />
+      </div>
+
       {/* Floating Tech Icons */}
       <FloatingTechIcons />
 
       {/* Floating Particles */}
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
 
-      {/* Title - Two Lines */}
+      {/* Title - Two Lines with Enhanced Glow */}
       <h1 className="font-bold mb-6 relative z-10">
         <span
           ref={titleLine1Ref}
-          className="block text-5xl sm:text-6xl md:text-7xl tracking-tight"
+          className="block text-5xl sm:text-6xl md:text-7xl tracking-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)]"
           style={{ opacity: 0 }}
         >
           ML&GenAI
         </span>
         <span
           ref={titleLine2Ref}
-          className="block text-4xl sm:text-5xl md:text-6xl tracking-tight mt-2"
+          className="block text-4xl sm:text-5xl md:text-6xl tracking-tight mt-2 drop-shadow-[0_0_25px_rgba(6,182,212,0.3)]"
           style={{ opacity: 0 }}
         >
           Portfolio
         </span>
       </h1>
 
-      {/* Main Subtitle */}
+      {/* Main Subtitle with Glow */}
       <p
         ref={subtitleRef}
-        className="text-lg sm:text-xl text-gray-300 mb-3 max-w-2xl mx-auto relative z-10"
+        className="text-lg sm:text-xl text-gray-300 mb-3 max-w-2xl mx-auto relative z-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
         style={{ opacity: 0 }}
       >
         Mastering Generative AI & Agents for Developers
@@ -263,23 +269,23 @@ export default function AnimatedHero() {
       {/* Stats Line */}
       <p
         ref={statsRef}
-        className="text-sm sm:text-base text-gray-500 mb-8 relative z-10"
+        className="text-sm sm:text-base text-gray-500 mb-10 relative z-10"
         style={{ opacity: 0 }}
       >
-        <span className="text-cyan-400">CodeCademy Bootcamp</span>
-        <span className="mx-2">•</span>
+        <span className="text-cyan-400 font-medium">CodeCademy Bootcamp</span>
+        <span className="mx-2 text-cyan-500/50">•</span>
         <span>6 Weeks</span>
-        <span className="mx-2">•</span>
+        <span className="mx-2 text-cyan-500/50">•</span>
         <span>6 Projects</span>
       </p>
 
-      {/* Action Buttons */}
+      {/* Action Buttons with Enhanced Effects */}
       <div
         ref={buttonsRef}
         className="flex flex-col sm:flex-row gap-4 items-center justify-center relative z-10"
       >
         <Button
-          className="bg-green-500 hover:bg-green-600 text-black font-semibold transform-gpu px-6 py-2"
+          className="bg-green-500 hover:bg-green-600 text-black font-semibold transform-gpu px-8 py-3 shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 relative overflow-hidden group"
           style={{ opacity: 0 }}
           onClick={(e) => {
             handleButtonClick(e);
@@ -288,19 +294,21 @@ export default function AnimatedHero() {
           onMouseEnter={handleButtonHover}
           onMouseLeave={handleButtonLeave}
         >
-          View Projects
+          <span className="relative z-10">View Projects</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </Button>
         <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
           <Button
             variant="ghost"
-            className="text-cyan-400 hover:text-black border border-cyan-500/30 hover:border-cyan-400/50 hover:bg-cyan-400/20 transform-gpu px-6 py-2"
+            className="text-cyan-400 hover:text-white border-2 border-cyan-500/40 hover:border-cyan-400/70 hover:bg-cyan-400/10 transform-gpu px-8 py-3 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 relative overflow-hidden group"
             style={{ opacity: 0 }}
             onMouseEnter={handleButtonHover}
             onMouseLeave={handleButtonLeave}
             onClick={handleButtonClick}
           >
-            <Award className="mr-2" size={18} />
-            Show Certificate
+            <Award className="mr-2 relative z-10 group-hover:rotate-12 transition-transform duration-300" size={18} />
+            <span className="relative z-10">Show Certificate</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-400/10 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
         </Link>
       </div>

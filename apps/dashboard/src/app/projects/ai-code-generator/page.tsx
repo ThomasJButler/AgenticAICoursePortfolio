@@ -8,7 +8,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Github, ExternalLink, Code2, Sparkles, Zap } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Languages, FlaskConical, FileText, Gauge, CheckCircle, Smartphone } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { animate as anime, stagger } from 'animejs';
 import { animeEasings, durations } from "@/lib/easings";
@@ -82,7 +82,7 @@ export default function AICodeGeneratorPage() {
         <div className="container mx-auto px-4 py-32">
         {/* Back Button */}
         <Link href="/">
-          <Button variant="ghost" className="mb-8 text-gray-400 hover:text-black hover:bg-green-400/20 border border-transparent hover:border-green-400/50">
+          <Button variant="ghost" className="mb-8 text-gray-400 hover:text-white hover:bg-green-400/20 border border-transparent hover:border-green-400/50">
             <ArrowLeft className="mr-2" size={16} />
             Back to Portfolio
           </Button>
@@ -90,12 +90,9 @@ export default function AICodeGeneratorPage() {
 
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12" style={{ opacity: 0 }}>
-          <div className="inline-flex items-center justify-center mb-4">
-            <Code2 className="text-green-400 mr-3" size={32} />
-            <h1 className="text-4xl md:text-5xl font-bold text-white border-b-4 border-green-400 pb-2">
-              AI Code Generator
-            </h1>
-          </div>
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+            Code Generator
+          </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Generate production-ready code with AI assistance
           </p>
@@ -120,8 +117,7 @@ export default function AICodeGeneratorPage() {
         <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Project Overview */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6" style={{ opacity: 0 }}>
-            <h2 className="text-2xl font-semibold text-green-400 mb-4 flex items-center">
-              <Code2 className="mr-2" size={24} />
+            <h2 className="text-2xl font-semibold text-green-400 mb-4">
               Project Overview
             </h2>
             <p className="text-gray-300 mb-4">
@@ -138,8 +134,7 @@ export default function AICodeGeneratorPage() {
 
           {/* Technical Stack */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-lg p-6" style={{ opacity: 0 }}>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4 flex items-center">
-              <Zap className="mr-2" size={24} />
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">
               Technical Stack
             </h2>
             <div className="space-y-3">
@@ -184,36 +179,42 @@ export default function AICodeGeneratorPage() {
               {
                 title: "Multi-Language Support",
                 description: "Generate code in Python, JavaScript, Java, C#, and more",
+                icon: Languages,
                 color: "from-green-500/20 to-green-600/10",
                 borderColor: "border-green-500/30"
               },
               {
                 title: "Automated Testing",
                 description: "Generate comprehensive test cases for all functions",
+                icon: FlaskConical,
                 color: "from-cyan-500/20 to-cyan-600/10",
                 borderColor: "border-cyan-500/30"
               },
               {
                 title: "Documentation Generation",
                 description: "Create detailed documentation with examples",
+                icon: FileText,
                 color: "from-purple-500/20 to-purple-600/10",
                 borderColor: "border-purple-500/30"
               },
               {
                 title: "Real-time Streaming",
                 description: "Watch code generate in real-time with syntax highlighting",
+                icon: Gauge,
                 color: "from-yellow-500/20 to-yellow-600/10",
                 borderColor: "border-yellow-500/30"
               },
               {
                 title: "Code Quality Optimisation",
                 description: "Best practices enforcement and performance optimisation",
+                icon: CheckCircle,
                 color: "from-red-500/20 to-red-600/10",
                 borderColor: "border-red-500/30"
               },
               {
                 title: "Responsive Design",
                 description: "Optimized for both desktop and mobile devices",
+                icon: Smartphone,
                 color: "from-indigo-500/20 to-indigo-600/10",
                 borderColor: "border-indigo-500/30"
               }
@@ -223,7 +224,10 @@ export default function AICodeGeneratorPage() {
                 className={`bg-gradient-to-br ${feature.color} border ${feature.borderColor} rounded-lg p-6 hover:scale-105 transition-transform duration-300`}
                 style={{ opacity: 0 }}
               >
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                  <feature.icon className="text-white" size={24} />
+                  {feature.title}
+                </h3>
                 <p className="text-sm text-gray-400">{feature.description}</p>
               </div>
             ))}
@@ -247,7 +251,7 @@ export default function AICodeGeneratorPage() {
               "https://res.cloudinary.com/depqttzlt/image/upload/v1758201680/ai-code-generator-rouge.vercel.appmobile1__jlxcm2.png",
               "https://res.cloudinary.com/depqttzlt/image/upload/v1758201680/ai-code-generator-rouge.vercel.appmobile2_cxmy8i.png"
             ]}
-            title="AI Code Generator"
+            title="Code Generator"
             customCaptions={[
               "Frontend Application Interface",
               "Code Generation Output",
