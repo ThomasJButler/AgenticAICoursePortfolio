@@ -247,7 +247,7 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
       <div
         ref={cardRef}
         className={`relative border border-gray-800 rounded-lg bg-gray-900/50 transition-colors duration-300 hover:border-green-500/50 flex flex-col ${
-          project.image ? 'h-[400px]' : 'h-[320px] p-6'
+          project.image ? 'h-[480px]' : 'h-[320px] p-6'
         }`}
         style={{
           opacity: 0,
@@ -326,7 +326,7 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
 
         {/* Image Section - Only for main projects (above tech stack) */}
         {project.image && (
-          <div className="h-[140px] w-full overflow-hidden relative bg-gradient-to-br from-gray-800/50 to-gray-700/30 mx-0 mb-4">
+          <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-gray-800/50 to-gray-700/30 mx-0 mb-4 rounded-lg border border-gray-700/30">
             {project.image === "placeholder" ? (
               <>
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-cyan-400/10 flex items-center justify-center backdrop-blur-sm">
@@ -346,20 +346,25 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
                 </div>
               </>
             ) : (
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                onError={(e) => {
-                  // Fallback to placeholder if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback') as HTMLElement;
-                  if (fallback) fallback.classList.remove('hidden');
-                }}
-              />
+              <>
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={90}
+                  priority={index < 2}
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback') as HTMLElement;
+                    if (fallback) fallback.classList.remove('hidden');
+                  }}
+                />
+                {/* Subtle overlay gradient for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </>
             )}
             {/* Fallback placeholder (hidden by default when image exists) */}
             {project.image !== "placeholder" && (
