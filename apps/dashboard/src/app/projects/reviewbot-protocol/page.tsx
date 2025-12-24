@@ -361,15 +361,21 @@ export default function ReviewBotProtocolPage() {
         {/* Project Screenshots */}
         <div ref={galleryRef} className="mb-12" style={{ opacity: 0 }}>
           <h2 className="text-3xl font-semibold text-center text-white mb-8">
-            Project Screenshot
+            Project Screenshots
           </h2>
           <ImageGallery
             images={[
-              "https://github.com/user-attachments/assets/c5f6f9cb-7f4f-44b5-8a70-a0bea3e25a7e"
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1765947192/ReviewBotprotocoldashboard_ojlqw1.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1765947196/reviewbotprotocoloauth_reeepw.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1765947195/reviewbotworkflow_je0skh.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1765947190/reviewbotchart_ncshxc.png"
             ]}
             title="ReviewBot Protocol"
             customCaptions={[
-              "ReviewBot Protocol Dashboard Interface"
+              "ReviewBot Protocol Dashboard Interface",
+              "GitHub OAuth Login Flow",
+              "LangGraph AI Workflow Architecture",
+              "Pull Request Review Flow Chart"
             ]}
           />
         </div>
