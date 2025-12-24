@@ -111,16 +111,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Skills to Stats Divider */}
+        {/* Skills to Journey Divider */}
         <MatrixDivider variant="glow" />
 
-        {/* Course Stats Section - MOVED HERE */}
-        <CourseStatsSection />
-
-        {/* Stats to Journey Divider */}
-        <MatrixDivider variant="dots" />
-
-        {/* Learning Journey Section - NEW */}
+        {/* Learning Journey Section with integrated stats */}
         <LearningJourneySection />
 
         {/* Journey to Contest Divider */}
@@ -201,7 +195,7 @@ const mainProjects: Project[] = [
   },
   {
     id: "ai-code-generator",
-    title: "AI Code Generator",
+    title: "Code Generator",
     description: "Generate production-ready code with AI assistance",
     week: "Week 1-2",
     status: "completed",
@@ -285,63 +279,13 @@ function handleButtonLeave(button: HTMLElement) {
   });
 }
 
-function CourseStatsSection() {
-  const [statsRef, isStatsVisible] = useIntersectionObserver<HTMLElement>({
-    threshold: 0.3,
-    freezeOnceVisible: true,
-  });
-  const prefersReducedMotion = useReducedMotion();
-  const statsBoxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (isStatsVisible && !prefersReducedMotion && statsBoxRef.current) {
-      anime(statsBoxRef.current, {
-        opacity: [0, 1],
-        scale: [0.95, 1],
-        translateY: [20, 0],
-        duration: durations.normal,
-        easing: animeEasings.smoothOut,
-      });
-
-      anime(statsBoxRef.current.querySelectorAll("p"), {
-        opacity: [0, 1],
-        translateX: [-20, 0],
-        duration: durations.fast,
-        delay: stagger(100, { start: 200 }),
-        easing: animeEasings.smoothOut,
-      });
-    }
-  }, [isStatsVisible, prefersReducedMotion]);
-
-  return (
-    <section ref={statsRef} className="container mx-auto px-4 pt-8 pb-10">
-      <div className="text-center">
-        <div
-          ref={statsBoxRef}
-          className="inline-block bg-gradient-to-r from-green-900/30 to-cyan-900/30 rounded-lg p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500"
-          style={{ opacity: 0 }}
-        >
-          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Course Duration:</span> August - September 2025 (6 Weeks)
-          </p>
-          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Projects Completed:</span> 6 Production-Ready Applications
-          </p>
-          <p className="text-gray-300" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Technologies Mastered:</span> 12+ AI/ML Frameworks & Tools
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function LearningJourneySection() {
   const [journeyRef, isJourneyVisible] = useIntersectionObserver<HTMLElement>({
     threshold: 0.2,
     freezeOnceVisible: true,
   });
   const prefersReducedMotion = useReducedMotion();
+  const statsBoxRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -352,12 +296,32 @@ function LearningJourneySection() {
     if (isJourneyVisible && !hasAnimated.current && !prefersReducedMotion && journeyRef.current) {
       hasAnimated.current = true;
 
+      // Animate stats box first
+      if (statsBoxRef.current) {
+        anime(statsBoxRef.current, {
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          translateY: [20, 0],
+          duration: durations.normal,
+          easing: animeEasings.smoothOut,
+        });
+
+        anime(statsBoxRef.current.querySelectorAll("p"), {
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          duration: durations.fast,
+          delay: stagger(100, { start: 200 }),
+          easing: animeEasings.smoothOut,
+        });
+      }
+
       // Animate title with subtle fade
       if (titleRef.current) {
         anime(titleRef.current, {
           opacity: [0, 1],
           translateY: [-20, 0],
           duration: durations.normal,
+          delay: 400,
           easing: animeEasings.smoothOut,
         });
       }
@@ -368,7 +332,7 @@ function LearningJourneySection() {
           opacity: [0, 1],
           translateX: [-30, 0],
           duration: durations.normal,
-          delay: 200,
+          delay: 600,
           easing: animeEasings.smoothOut,
         });
       }
@@ -381,7 +345,7 @@ function LearningJourneySection() {
             translateY: [40, 0],
             rotateX: [-10, 0],
             duration: durations.slow,
-            delay: index * 150 + 300,
+            delay: index * 150 + 700,
             easing: animeEasings.appleEaseOut,
           });
         }
@@ -393,7 +357,7 @@ function LearningJourneySection() {
         translateX: [-15, 0],
         scale: [0.95, 1],
         duration: durations.fast,
-        delay: stagger(30, { start: 700 }),
+        delay: stagger(30, { start: 1100 }),
         easing: animeEasings.smoothOut,
       });
     }
@@ -519,13 +483,30 @@ function LearningJourneySection() {
 
   return (
     <section ref={journeyRef} id="journey" className="container mx-auto px-4 py-10">
-      <div className="text-center mb-16">
+      <div className="text-center mb-8">
         <h2 ref={titleRef} className="text-4xl font-bold text-white mb-4" style={{ opacity: 0 }}>
           My Learning Journey
         </h2>
-        <p ref={descRef} className="text-gray-400 text-lg max-w-3xl mx-auto" style={{ opacity: 0 }}>
+        <p ref={descRef} className="text-gray-400 text-lg max-w-3xl mx-auto mb-8" style={{ opacity: 0 }}>
           Transforming from developer to AI engineer through the Mastering Generative AI & Agents bootcamp
         </p>
+
+        {/* Course Stats Box */}
+        <div
+          ref={statsBoxRef}
+          className="inline-block bg-gradient-to-r from-green-900/30 to-cyan-900/30 rounded-lg p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 mb-16"
+          style={{ opacity: 0 }}
+        >
+          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Course Duration:</span> August - September 2025 (6 Weeks)
+          </p>
+          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Projects Completed:</span> 6 Production-Ready Applications
+          </p>
+          <p className="text-gray-300" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Technologies Mastered:</span> 12+ AI/ML Frameworks & Tools
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
