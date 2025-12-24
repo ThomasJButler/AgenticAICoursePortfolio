@@ -8,7 +8,7 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 
 ### Completed
 
-**AI Comparison Showcase**
+**ModelViz**
 - Side-by-side comparison of GPT-4, Claude 3.5, and Gemini responses
 - Real-time streaming with response metrics
 - Live: https://modelviz.vercel.app/
@@ -16,7 +16,7 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 **Code Generator**
 - Natural language to code with multi-language support
 - Automated test generation and documentation
-- Live: https://ai-code-generator-rouge.vercel.app/
+- Live: https://theaigenerator.vercel.app/
 
 **Morpheus**
 - Intelligent document Q&A system with semantic search and citations
@@ -32,12 +32,6 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 - Football data analytics platform with natural language queries
 - LangChain to SQL conversion with PostgreSQL backend
 - Live: https://sql-ball.vercel.app/
-
-### In Development
-
-- Git Review Assistant (automated PR reviews via LangChain)
-- Multi-Agent System (LangGraph coordination)
-- Dev Workflow Agent (MCP integration for automation)
 
 ## Tech Stack
 
