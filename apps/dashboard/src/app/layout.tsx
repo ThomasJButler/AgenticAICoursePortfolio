@@ -19,15 +19,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Course Portfolio | Tom Butler",
+  title: "AI Course Portfolio",
   description: "Showcasing cutting-edge AI projects from the Mastering Generative AI & Agents for Developers bootcamp. Features LangChain, RAG, Multi-Agent Systems, and more.",
   keywords: "AI, Machine Learning, LangChain, RAG, Multi-Agent Systems, GPT-4, Portfolio, Codecademy",
   authors: [{ name: "Tom Butler", url: "https://github.com/ThomasJButler" }],
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
-    title: "AI Course Portfolio | Tom Butler",
+    title: "AI Course Portfolio",
     description: "Explore 6 cutting-edge AI projects showcasing mastery of modern AI development",
     type: "website",
     locale: "en_GB",
+    images: [
+      {
+        url: "/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "AI Course Portfolio Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Course Portfolio",
+    description: "Explore 6 cutting-edge AI projects showcasing mastery of modern AI development",
+    images: ["/logo.svg"],
   },
 };
 
