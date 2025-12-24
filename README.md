@@ -4,6 +4,8 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 
 **Live:** [https://agentic-ai-projects-portfolio.vercel.app/](https://agenticaiprojectsportfolio.vercel.app/)
 
+<img width="1254" height="619" alt="image" src="https://github.com/user-attachments/assets/4323c5fe-166b-4ee9-a734-88e3677c8aa1" />
+
 ## Projects
 
 ### Completed
