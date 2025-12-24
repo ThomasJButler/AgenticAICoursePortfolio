@@ -178,7 +178,7 @@ const mainProjects: Project[] = [
     week: "Featured",
     status: "completed",
     techStack: ["Next.js 16", "React 19", "TypeScript", "Three.js", "Framer Motion"],
-    image: "/ModelViz.png",
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1766581000/ModelViz_rgtovj.png",
     demo: "https://modelviz.vercel.app/",
     githubUrl: "https://github.com/ThomasJButler/ModelViz",
   },
@@ -211,7 +211,7 @@ const mainProjects: Project[] = [
     week: "Final Project",
     status: "completed",
     techStack: ["Supabase", "LangChain", "React", 'OpenAI', 'PostGresSQL'],
-    image: "/sqlball.png",
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1766581001/sqlball_rtdaag.png",
     demo: "https://sql-ball.vercel.app/",
   },
     {
@@ -231,7 +231,7 @@ const mainProjects: Project[] = [
     week: "Meta Project",
     status: "completed",
     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Anime.js"],
-    image: "/Dashboard.png",
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1766595895/dashboardhomepage_xxsk0z.png",
     demo: "/",
   },
 ];
