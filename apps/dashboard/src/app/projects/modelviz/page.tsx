@@ -98,7 +98,7 @@ export default function ModelVizPage() {
           </p>
 
           <div className="flex gap-4 justify-center mt-6">
-            <Link href="https://ai-comparison-showcase.vercel.app" target="_blank">
+            <Link href="https://modelviz.vercel.app/" target="_blank">
               <Button className="bg-green-500 hover:bg-green-600 text-black font-semibold">
                 <ExternalLink className="mr-2" size={18} />
                 View Live Site
@@ -365,21 +365,21 @@ export default function ModelVizPage() {
           </h2>
           <ImageGallery
             images={[
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758053629/buildmodel_bbmlst.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758053562/aicodeoutput_l0bp9d.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758053563/aicompare_wnz39e.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758029930/particleuniverseaicomparison_kydtbd.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1737693677/Usage_Patterns_iw5j6a.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1737694764/python_projects_cxbrnj.png"
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766595441/modelvizsequence_gtwfxa.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766586749/modelvizintro_aq3uq5.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766586753/modelvizstart_wnffmd.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766586748/modelvizdashboard1_vmsrdc.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766586748/modelvizanswer_lkqdlr.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766586749/modelvizdashboard2_davkpv.png"
             ]}
             title="ModelViz"
             customCaptions={[
-              "Building AI Model Integration",
-              "AI Code Output Display",
-              "Model Analytics Interface",
-              "3D Particle Universe Visualization",
-              "Usage Patterns Analytics",
-              "Dashboard Overview"
+              "System Architecture Sequence Diagram",
+              "Welcome Page - Introduction to ModelViz",
+              "Getting Started with Model Comparison",
+              "Analytics Dashboard - Real-time Metrics",
+              "AI Model Response Output",
+              "API Output Statistics and Performance Analysis"
             ]}
           />
         </div>
@@ -470,7 +470,7 @@ export default function ModelVizPage() {
         {/* CTA Section */}
         <div className="text-center py-8">
           <div className="flex gap-4 justify-center">
-            <Link href="https://ai-comparison-showcase.vercel.app" target="_blank">
+            <Link href="https://modelviz.vercel.app/" target="_blank">
               <Button size="lg" className="bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-black font-bold">
                 <ExternalLink className="mr-2" size={20} />
                 Try the Live Demo

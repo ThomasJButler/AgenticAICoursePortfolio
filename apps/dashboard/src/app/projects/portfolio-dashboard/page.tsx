@@ -244,9 +244,9 @@ export default function PortfolioDashboardPage() {
           </h2>
           <ImageGallery
             images={[
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758053628/aicourseportfolio_pejlr2.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758055736/dashboardlearningjourney_fuypxr.png",
-              "https://res.cloudinary.com/depqttzlt/image/upload/v1758053628/aidashboardmobile_phjbmx.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766595895/dashboardhomepage_xxsk0z.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766595895/mainprojectsdashboard_shl119.png",
+              "https://res.cloudinary.com/depqttzlt/image/upload/v1766595895/dashboardlearning_ceawym.png",
               "https://res.cloudinary.com/depqttzlt/image/upload/v1758053627/aicoursemobilefeatures_bvmcto.png",
               "https://res.cloudinary.com/depqttzlt/image/upload/v1758053563/dashboardeffects_itxmob.png",
               "https://res.cloudinary.com/depqttzlt/image/upload/v1758053561/aidashboardfrontend_a3ox6v.png"
