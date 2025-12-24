@@ -77,21 +77,6 @@ export default function Home() {
               />
             ))}
           </div>
-
-          {/* Main to Development Projects Divider */}
-          <MatrixDivider variant="dots" />
-
-          {/* Projects in Development Section */}
-          <ProjectsInDevelopmentHeading />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {projectsInDevelopment.map((project, index) => (
-              <AnimatedProjectCard
-                key={project.id}
-                project={project}
-                index={index + mainProjects.length}
-              />
-            ))}
-          </div>
         </section>
 
         {/* Projects to Skills Divider */}
@@ -126,16 +111,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Skills to Stats Divider */}
+        {/* Skills to Journey Divider */}
         <MatrixDivider variant="glow" />
 
-        {/* Course Stats Section - MOVED HERE */}
-        <CourseStatsSection />
-
-        {/* Stats to Journey Divider */}
-        <MatrixDivider variant="dots" />
-
-        {/* Learning Journey Section - NEW */}
+        {/* Learning Journey Section with integrated stats */}
         <LearningJourneySection />
 
         {/* Journey to Contest Divider */}
@@ -193,24 +172,37 @@ interface Project {
 
 const mainProjects: Project[] = [
   {
-    id: "ai-comparison-showcase",
-    title: "AI Comparison Showcase",
-    description: "Compare responses from multiple AI models side-by-side in real-time",
+    id: "modelviz",
+    title: "ModelViz",
+    description: "Interactive analytics platform for comparing AI models across multiple providers with real-time performance metrics, cost analysis, and 3D visualisations",
     week: "Featured",
     status: "completed",
-    techStack: ["Next.js", "TypeScript", "Multiple AI APIs"],
-    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1754529216/aicomparison_xoherd.png",
-    demo: "https://ai-comparison-showcase.vercel.app",
+    techStack: ["Next.js 16", "React 19", "TypeScript", "Three.js", "Framer Motion"],
+    image: "/ModelViz.png",
+    demo: "https://modelviz.vercel.app/",
+    githubUrl: "https://github.com/ThomasJButler/ModelViz",
+  },
+    {
+    id: "morpheus",
+    title: "Morpheus",
+    description: "Intelligent document Q&A system with semantic search and source citations using RAG",
+    week: "Week 3",
+    status: "completed",
+    techStack: ["Pinecone", "Anthropic", "OpenAI", "LangChain", "FastAPI"],
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1766580765/morpheuschat_evuiol.png",
+    demo: "https://morpheusrag.vercel.app",
+    githubUrl: "https://github.com/ThomasJButler/Morpheus",
   },
   {
     id: "ai-code-generator",
-    title: "AI Code Generator",
+    title: "Code Generator",
     description: "Generate production-ready code with AI assistance",
     week: "Week 1-2",
     status: "completed",
     techStack: ["LangChain", "GPT-4o", "Python", "Flask", "React"],
-    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758201680/codegeneratorfrontend_jccy53.png",
-    demo: "https://ai-code-generator-rouge.vercel.app/",
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758201680/codegeneratordocs_snywas.png",
+    demo: "https://theaigenerator.vercel.app/",
+    githubUrl: "https://github.com/ThomasJButler/AICodeGenerator",
   },
   {
     id: "sql-ball",
@@ -219,64 +211,30 @@ const mainProjects: Project[] = [
     week: "Final Project",
     status: "completed",
     techStack: ["Supabase", "LangChain", "React", 'OpenAI', 'PostGresSQL'],
-    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758053629/generatedsql_yclpkb.png",
+    image: "/sqlball.png",
     demo: "https://sql-ball.vercel.app/",
   },
-  {
+    {
+    id: "reviewbot-protocol",
+    title: "ReviewBot Protocol",
+    description: "AI-powered GitHub PR reviews with automated code analysis and intelligent feedback",
+    week: "Week 2",
+    status: "completed",
+    techStack: ["Next.js 15", "FastAPI", "LangChain", "LangGraph", "PostgreSQL"],
+    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1766581001/rvp_vr7mvr.png",
+    githubUrl: "https://github.com/ThomasJButler/ReviewBot-Protocol",
+  },
+    {
     id: "portfolio-dashboard",
     title: "Portfolio Dashboard",
     description: "Interactive AI course portfolio showcasing projects and learning journey",
     week: "Meta Project",
     status: "completed",
     techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Anime.js"],
-    image: "https://res.cloudinary.com/depqttzlt/image/upload/v1758053628/aicourseportfolio_pejlr2.png",
+    image: "/Dashboard.png",
     demo: "/",
   },
 ];
-
-const projectsInDevelopment: Project[] = [
-  {
-    id: "git-review-assistant",
-    title: "Git Review Assistant",
-    description: "AI-powered code review system with automated PR feedback",
-    week: "Week 2",
-    status: "in-progress",
-    techStack: ["LangChain", "GitHub API", "FastAPI"],
-    progress: 90,
-    eta: "September 24th, 2025",
-  },
-  {
-    id: "rag-chatbot",
-    title: "RAG Chatbot",
-    description: "Document-based Q&A system with semantic search and citations",
-    week: "Week 3",
-    status: "in-progress",
-    techStack: ["Pinecone", "OpenAI", "LangChain"],
-    progress: 70,
-    eta: "September 30th, 2025",
-  },
-  {
-    id: "multi-agent-system",
-    title: "Multi-Agent System",
-    description: "Collaborative AI agents for complex task orchestration",
-    week: "Week 4",
-    status: "in-progress",
-    techStack: ["LangGraph", "Multiple LLMs", "WebSocket"],
-    progress: 5,
-    eta: "October 5th, 2025",
-  },
-  {
-    id: "workflow-agent",
-    title: "Dev Workflow Agent",
-    description: "Automate development workflows with MCP integration",
-    week: "Week 5",
-    status: "in-progress",
-    techStack: ["MCP", "GitHub Actions", "Docker"],
-    progress: 5,
-    eta: "October 12th, 2025",
-  },
-];
-
 
 function ContestGlow() {
   const glowRef = useRef<HTMLDivElement>(null);
@@ -321,63 +279,13 @@ function handleButtonLeave(button: HTMLElement) {
   });
 }
 
-function CourseStatsSection() {
-  const [statsRef, isStatsVisible] = useIntersectionObserver<HTMLElement>({
-    threshold: 0.3,
-    freezeOnceVisible: true,
-  });
-  const prefersReducedMotion = useReducedMotion();
-  const statsBoxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (isStatsVisible && !prefersReducedMotion && statsBoxRef.current) {
-      anime(statsBoxRef.current, {
-        opacity: [0, 1],
-        scale: [0.95, 1],
-        translateY: [20, 0],
-        duration: durations.normal,
-        easing: animeEasings.smoothOut,
-      });
-
-      anime(statsBoxRef.current.querySelectorAll("p"), {
-        opacity: [0, 1],
-        translateX: [-20, 0],
-        duration: durations.fast,
-        delay: stagger(100, { start: 200 }),
-        easing: animeEasings.smoothOut,
-      });
-    }
-  }, [isStatsVisible, prefersReducedMotion]);
-
-  return (
-    <section ref={statsRef} className="container mx-auto px-4 pt-8 pb-10">
-      <div className="text-center">
-        <div
-          ref={statsBoxRef}
-          className="inline-block bg-gradient-to-r from-green-900/30 to-cyan-900/30 rounded-lg p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500"
-          style={{ opacity: 0 }}
-        >
-          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Course Duration:</span> August - September 2025 (6 Weeks)
-          </p>
-          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Projects Completed:</span> 6 Production-Ready Applications
-          </p>
-          <p className="text-gray-300" style={{ opacity: 0 }}>
-            <span className="text-green-400 font-semibold">Technologies Mastered:</span> 12+ AI/ML Frameworks & Tools
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function LearningJourneySection() {
   const [journeyRef, isJourneyVisible] = useIntersectionObserver<HTMLElement>({
     threshold: 0.2,
     freezeOnceVisible: true,
   });
   const prefersReducedMotion = useReducedMotion();
+  const statsBoxRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -388,12 +296,32 @@ function LearningJourneySection() {
     if (isJourneyVisible && !hasAnimated.current && !prefersReducedMotion && journeyRef.current) {
       hasAnimated.current = true;
 
+      // Animate stats box first
+      if (statsBoxRef.current) {
+        anime(statsBoxRef.current, {
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          translateY: [20, 0],
+          duration: durations.normal,
+          easing: animeEasings.smoothOut,
+        });
+
+        anime(statsBoxRef.current.querySelectorAll("p"), {
+          opacity: [0, 1],
+          translateX: [-20, 0],
+          duration: durations.fast,
+          delay: stagger(100, { start: 200 }),
+          easing: animeEasings.smoothOut,
+        });
+      }
+
       // Animate title with subtle fade
       if (titleRef.current) {
         anime(titleRef.current, {
           opacity: [0, 1],
           translateY: [-20, 0],
           duration: durations.normal,
+          delay: 400,
           easing: animeEasings.smoothOut,
         });
       }
@@ -404,7 +332,7 @@ function LearningJourneySection() {
           opacity: [0, 1],
           translateX: [-30, 0],
           duration: durations.normal,
-          delay: 200,
+          delay: 600,
           easing: animeEasings.smoothOut,
         });
       }
@@ -417,7 +345,7 @@ function LearningJourneySection() {
             translateY: [40, 0],
             rotateX: [-10, 0],
             duration: durations.slow,
-            delay: index * 150 + 300,
+            delay: index * 150 + 700,
             easing: animeEasings.appleEaseOut,
           });
         }
@@ -429,7 +357,7 @@ function LearningJourneySection() {
         translateX: [-15, 0],
         scale: [0.95, 1],
         duration: durations.fast,
-        delay: stagger(30, { start: 700 }),
+        delay: stagger(30, { start: 1100 }),
         easing: animeEasings.smoothOut,
       });
     }
@@ -555,13 +483,30 @@ function LearningJourneySection() {
 
   return (
     <section ref={journeyRef} id="journey" className="container mx-auto px-4 py-10">
-      <div className="text-center mb-16">
+      <div className="text-center mb-8">
         <h2 ref={titleRef} className="text-4xl font-bold text-white mb-4" style={{ opacity: 0 }}>
           My Learning Journey
         </h2>
-        <p ref={descRef} className="text-gray-400 text-lg max-w-3xl mx-auto" style={{ opacity: 0 }}>
+        <p ref={descRef} className="text-gray-400 text-lg max-w-3xl mx-auto mb-8" style={{ opacity: 0 }}>
           Transforming from developer to AI engineer through the Mastering Generative AI & Agents bootcamp
         </p>
+
+        {/* Course Stats Box */}
+        <div
+          ref={statsBoxRef}
+          className="inline-block bg-gradient-to-r from-green-900/30 to-cyan-900/30 rounded-lg p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 mb-16"
+          style={{ opacity: 0 }}
+        >
+          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Course Duration:</span> August - September 2025 (6 Weeks)
+          </p>
+          <p className="text-gray-300 mb-2" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Projects Completed:</span> 6 Production-Ready Applications
+          </p>
+          <p className="text-gray-300" style={{ opacity: 0 }}>
+            <span className="text-green-400 font-semibold">Technologies Mastered:</span> 12+ AI/ML Frameworks & Tools
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -655,59 +600,6 @@ function MainProjectsHeading() {
     >
       Main Projects
     </h2>
-  );
-}
-
-function ProjectsInDevelopmentHeading() {
-  const [headerRef, isVisible] = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.3,
-    freezeOnceVisible: true,
-  });
-  const prefersReducedMotion = useReducedMotion();
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    if (isVisible && !prefersReducedMotion) {
-      if (titleRef.current) {
-        anime(titleRef.current, {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          duration: durations.normal,
-          delay: 300,
-          easing: animeEasings.smoothOut,
-        });
-      }
-
-      if (descRef.current) {
-        anime(descRef.current, {
-          opacity: [0, 1],
-          translateY: [20, 0],
-          duration: durations.normal,
-          delay: 450,
-          easing: animeEasings.smoothOut,
-        });
-      }
-    }
-  }, [isVisible, prefersReducedMotion, headerRef]);
-
-  return (
-    <div ref={headerRef}>
-      <h2
-        ref={titleRef}
-        className="text-4xl font-bold text-center mb-4 text-cyan-400"
-        style={{ opacity: 0 }}
-      >
-        Projects in Development
-      </h2>
-      <p
-        ref={descRef}
-        className="text-center text-gray-400 mb-12 max-w-2xl mx-auto"
-        style={{ opacity: 0 }}
-      >
-        Exciting projects coming soon! Each project is being carefully crafted to showcase advanced AI capabilities.
-      </p>
-    </div>
   );
 }
 

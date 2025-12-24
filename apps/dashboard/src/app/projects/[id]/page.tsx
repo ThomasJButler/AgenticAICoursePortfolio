@@ -13,7 +13,7 @@ import MatrixDivider from "@/components/ui/MatrixDivider";
 
 const projectDetails = {
   "ai-code-generator": {
-    title: "AI Code Generator",
+    title: "Code Generator",
     fullDescription: "An intelligent natural language to code conversion system that leverages advanced AI models to generate high-quality, well-structured code from plain English descriptions. Features support for multiple programming languages and frameworks with automated testing and documentation generation.",
     week: "Week 1-2",
     status: "completed",
@@ -104,101 +104,41 @@ const projectDetails = {
     github: "https://github.com/ThomasJButler/git-review-assistant",
     demo: null
   },
-  "rag-chatbot": {
-    title: "RAG Chatbot",
-    fullDescription: "A sophisticated document-based Q&A system that uses Retrieval-Augmented Generation to provide accurate, contextual responses with source citations. Implements semantic search across multiple documents.",
+  "morpheus": {
+    title: "Morpheus",
+    fullDescription: "*\"Free your mind.\"* Morpheus is an intelligent document reasoning system that doesn't just search your documents—it understands them. Upload files, ask questions in natural language, and receive accurate answers with full source citations. All wrapped in a beautiful, terminal-inspired Matrix UI with production-ready engineering.",
     week: "Week 3",
-    status: "upcoming",
-    techStack: ["Pinecone", "OpenAI", "LangChain", "FastAPI", "React"],
+    status: "completed",
+    techStack: ["Pinecone", "OpenAI", "LangChain", "FastAPI", "React", "Next.js 15", "TypeScript"],
     learnings: [
-      "Vector database design and optimisation strategies",
-      "Retrieval-Augmented Generation (RAG) implementation patterns",
-      "Embedding generation and similarity search algorithms",
-      "Document chunking and preprocessing techniques",
-      "Context window management for large documents"
+      "Vector database design and optimisation with Pinecone at scale",
+      "Retrieval-Augmented Generation (RAG) implementation patterns for production",
+      "Embedding generation and semantic similarity search optimization",
+      "Intelligent document chunking and preprocessing techniques",
+      "Session-based multi-tenancy for document isolation",
+      "Server-sent events for real-time streaming responses",
+      "Matrix UI design with glass morphism and backdrop blur effects"
     ],
     features: [
-      "Multi-document ingestion and processing",
-      "Semantic search using vector embeddings",
-      "Contextual response generation with GPT-4",
-      "Source citation and highlighting",
-      "Conversation memory and context retention",
-      "Confidence scoring for responses",
-      "Multi-language document support",
-      "Document summarization capabilities"
+      "Multi-document ingestion (PDF, DOCX, TXT, Markdown)",
+      "Semantic search with relevance scoring",
+      "Contextual response generation with Claude 3.5 Sonnet",
+      "Full source citations with highlighting",
+      "Session-based document isolation",
+      "Real-time streaming responses with SSE",
+      "Export conversations as JSON",
+      "Matrix-themed interface with animations",
+      "Keyboard shortcuts (⌘K, ⌘S, Esc)",
+      "Mobile-responsive design"
     ],
     screenshots: {
-      desktop: ["/screenshots/rag-chatbot-desktop-1.jpg", "/screenshots/rag-chatbot-desktop-2.jpg"],
-      mobile: ["/screenshots/rag-chatbot-mobile-1.jpg", "/screenshots/rag-chatbot-mobile-2.jpg"],
-      structure: ["/screenshots/rag-chatbot-architecture.jpg"]
+      desktop: ["/screenshots/morpheus-desktop-1.jpg", "/screenshots/morpheus-desktop-2.jpg"],
+      mobile: ["/screenshots/morpheus-mobile-1.jpg", "/screenshots/morpheus-mobile-2.jpg"],
+      structure: ["/screenshots/morpheus-architecture.jpg"]
     },
-    implementation: "Coming soon...",
-    github: "https://github.com/ThomasJButler/rag-chatbot",
-    demo: null
-  },
-  "multi-agent-system": {
-    title: "Multi-Agent System",
-    fullDescription: "A collaborative AI system where multiple specialised agents work together to solve complex tasks. Features real-time visualisation of agent communication and decision-making processes.",
-    week: "Week 4",
-    status: "upcoming",
-    techStack: ["LangGraph", "Multiple LLMs", "WebSocket", "D3.js", "FastAPI"],
-    learnings: [
-      "Multi-agent system architecture and coordination patterns",
-      "LangGraph workflow orchestration and state management",
-      "Real-time communication between distributed AI agents",
-      "Load balancing and failover strategies for LLM requests",
-      "Visualization of complex agent interaction networks"
-    ],
-    features: [
-      "Research agent for web searching and data gathering",
-      "Code agent for implementation tasks",
-      "Review agent for quality assurance",
-      "Orchestrator for task coordination",
-      "Real-time agent communication visualisation",
-      "Task delegation optimisation",
-      "Agent performance metrics dashboard",
-      "Collaborative decision-making algorithms"
-    ],
-    screenshots: {
-      desktop: ["/screenshots/multi-agent-system-desktop-1.jpg", "/screenshots/multi-agent-system-desktop-2.jpg"],
-      mobile: ["/screenshots/multi-agent-system-mobile-1.jpg"],
-      structure: ["/screenshots/multi-agent-system-flow.jpg", "/screenshots/multi-agent-system-architecture.jpg"]
-    },
-    implementation: "Coming soon...",
-    github: "https://github.com/ThomasJButler/multi-agent-system",
-    demo: null
-  },
-  "workflow-agent": {
-    title: "Dev Workflow Agent",
-    fullDescription: "An intelligent automation system for development workflows using Model Context Protocol (MCP). Streamlines CI/CD, documentation, and deployment processes.",
-    week: "Week 5",
-    status: "upcoming",
-    techStack: ["MCP", "GitHub Actions", "Docker", "Node.js", "Python"],
-    learnings: [
-      "Model Context Protocol (MCP) implementation and best practices",
-      "CI/CD pipeline automation with AI-driven optimisations",
-      "Containerization strategies for AI development workflows",
-      "Infrastructure as Code for scalable AI deployments",
-      "Performance monitoring and alerting for production AI systems"
-    ],
-    features: [
-      "Automated task execution",
-      "CI/CD pipeline generation",
-      "Smart documentation generation",
-      "Code formatting and linting automation",
-      "Deployment automation with rollback",
-      "Custom workflow builder UI",
-      "Template marketplace integration",
-      "Performance benchmarking tools"
-    ],
-    screenshots: {
-      desktop: ["/screenshots/workflow-agent-desktop-1.jpg", "/screenshots/workflow-agent-desktop-2.jpg"],
-      mobile: ["/screenshots/workflow-agent-mobile-1.jpg"],
-      structure: ["/screenshots/workflow-agent-pipeline.jpg"]
-    },
-    implementation: "Coming soon...",
-    github: "https://github.com/ThomasJButler/workflow-agent",
-    demo: null
+    implementation: "Fully functional production-ready system with TypeScript strict mode, FastAPI backend, Next.js 15 frontend, and optimized performance with real-time streaming.",
+    github: "https://github.com/ThomasJButler/Morpheus",
+    demo: "https://morpheusrag.vercel.app"
   },
   "sql-ball": {
     title: "SQL-Ball",
@@ -360,16 +300,16 @@ export default function ProjectDetailPage() {
         <Button
           onClick={() => router.push("/")}
           variant="ghost"
-          className="mb-8 text-gray-400 hover:text-black hover:bg-green-400/20 border border-transparent hover:border-green-400/50"
+          className="mb-8 text-gray-400 hover:text-white hover:bg-green-400/20 border border-transparent hover:border-green-400/50"
         >
           <ArrowLeft className="mr-2" size={20} />
-          Back to Projects
+          Back to Portfolio
         </Button>
 
         {/* Project Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent hover:from-cyan-400 hover:to-green-400 transition-all duration-500">
+          <div className="flex items-center gap-3 mb-4">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
               {project.title}
             </h1>
             <span className={`px-3 py-1 rounded-md text-sm transition-all duration-200 hover:scale-110 ${statusColors[project.status as keyof typeof statusColors]}`}>

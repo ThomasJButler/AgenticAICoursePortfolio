@@ -247,7 +247,7 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
       <div
         ref={cardRef}
         className={`relative border border-gray-800 rounded-lg bg-gray-900/50 transition-colors duration-300 hover:border-green-500/50 flex flex-col ${
-          project.image ? 'h-[400px]' : 'h-[320px] p-6'
+          project.image ? 'h-[480px]' : 'h-[320px] p-6'
         }`}
         style={{
           opacity: 0,
@@ -264,60 +264,7 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
           }}
         />
 
-        {/* Image Section - Only for main projects */}
-        {project.image && (
-          <div className="h-[180px] w-full overflow-hidden rounded-t-lg relative bg-gradient-to-br from-gray-800/50 to-gray-700/30">
-            {project.image === "placeholder" ? (
-              <>
-                <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-cyan-400/10 flex items-center justify-center backdrop-blur-sm">
-                  <div className="text-center text-gray-300">
-                    <div className="w-16 h-16 bg-gray-700/50 rounded-xl flex items-center justify-center mb-3 mx-auto border border-gray-600/50">
-                      <div className="text-2xl">📸</div>
-                    </div>
-                    <p className="text-sm font-medium text-gray-300">Project Screenshot</p>
-                    <p className="text-xs text-gray-500 mt-1">Ready for your image</p>
-                  </div>
-                </div>
-                {/* Subtle tech pattern overlay */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full"></div>
-                  <div className="absolute top-6 right-6 w-1 h-1 bg-cyan-400 rounded-full"></div>
-                  <div className="absolute bottom-8 left-8 w-1 h-1 bg-green-400 rounded-full"></div>
-                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
-                </div>
-              </>
-            ) : (
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                onError={(e) => {
-                  // Fallback to placeholder if image fails to load
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback') as HTMLElement;
-                  if (fallback) fallback.classList.remove('hidden');
-                }}
-              />
-            )}
-            {/* Fallback placeholder (hidden by default when image exists) */}
-            {project.image !== "placeholder" && (
-              <div className="image-fallback hidden absolute inset-0 bg-gradient-to-br from-green-400/10 to-cyan-400/10 flex items-center justify-center backdrop-blur-sm">
-                <div className="text-center text-gray-300">
-                  <div className="w-16 h-16 bg-gray-700/50 rounded-xl flex items-center justify-center mb-3 mx-auto border border-gray-600/50">
-                    <div className="text-2xl">📸</div>
-                  </div>
-                  <p className="text-sm font-medium text-gray-300">Project Screenshot</p>
-                  <p className="text-xs text-gray-500 mt-1">Image failed to load</p>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        <div ref={contentRef} className={`flex-1 flex flex-col ${project.image ? 'p-5' : ''}`}>
+        <div ref={contentRef} className={`flex-1 flex flex-col items-center text-center ${project.image ? 'p-5' : ''}`}>
           <div className="absolute top-0 right-0 -mt-1 -mr-1">
             <span
               className={`inline-block px-2 py-1 text-xs rounded-md ${statusColors[project.status]}`}
@@ -377,8 +324,64 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
           )}
         </div>
 
-        <div className="mt-auto space-y-4">
-          <div ref={techStackRef} className="flex flex-wrap gap-2">
+        {/* Image Section - Only for main projects (above tech stack) */}
+        {project.image && (
+          <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-gray-800/50 to-gray-700/30 mx-0 mb-4 rounded-lg border border-gray-700/30">
+            {project.image === "placeholder" ? (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-cyan-400/10 flex items-center justify-center backdrop-blur-sm">
+                  <div className="text-center text-gray-300">
+                    <div className="w-12 h-12 bg-gray-700/50 rounded-xl flex items-center justify-center mb-2 mx-auto border border-gray-600/50">
+                      <div className="text-xl">📸</div>
+                    </div>
+                    <p className="text-xs font-medium text-gray-300">Project Screenshot</p>
+                  </div>
+                </div>
+                {/* Subtle tech pattern overlay */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="absolute top-6 right-6 w-1 h-1 bg-cyan-400 rounded-full"></div>
+                  <div className="absolute bottom-8 left-8 w-1 h-1 bg-green-400 rounded-full"></div>
+                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
+                </div>
+              </>
+            ) : (
+              <>
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  quality={90}
+                  priority={index < 2}
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback') as HTMLElement;
+                    if (fallback) fallback.classList.remove('hidden');
+                  }}
+                />
+                {/* Subtle overlay gradient for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-transparent to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </>
+            )}
+            {/* Fallback placeholder (hidden by default when image exists) */}
+            {project.image !== "placeholder" && (
+              <div className="image-fallback hidden absolute inset-0 bg-gradient-to-br from-green-400/10 to-cyan-400/10 flex items-center justify-center backdrop-blur-sm">
+                <div className="text-center text-gray-300">
+                  <div className="w-12 h-12 bg-gray-700/50 rounded-xl flex items-center justify-center mb-2 mx-auto border border-gray-600/50">
+                    <div className="text-xl">📸</div>
+                  </div>
+                  <p className="text-xs font-medium text-gray-300">Project Screenshot</p>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className={`mt-auto space-y-4 ${project.image ? 'px-5 pb-5' : ''}`}>
+          <div ref={techStackRef} className="flex flex-wrap gap-2 justify-center">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
@@ -390,8 +393,8 @@ export default function AnimatedProjectCard({ project, index }: AnimatedProjectC
             ))}
           </div>
 
-          {/* Show dual buttons for AI Comparison, AI Code Generator, and SQL-Ball */}
-          {(project.id === "ai-comparison-showcase" || project.id === "ai-code-generator" || project.id === "sql-ball") && project.demo ? (
+          {/* Show dual buttons for AI Comparison, AI Code Generator, SQL-Ball, ModelViz, and Morpheus */}
+          {(project.id === "ai-comparison-showcase" || project.id === "ai-code-generator" || project.id === "sql-ball" || project.id === "modelviz" || project.id === "morpheus") && project.demo ? (
             <div className="grid grid-cols-2 gap-2">
               <Link href={`/projects/${project.id}`}>
                 <Button

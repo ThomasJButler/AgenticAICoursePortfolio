@@ -110,12 +110,6 @@ export default function Navigation() {
                 >
                   Contest
                 </Link>
-                <Link
-                  href="/projects/portfolio-dashboard"
-                  className="text-sm font-medium text-gray-400 hover:text-green-400 transition-colors"
-                >
-                  About
-                </Link>
               </div>
             </div>
 
@@ -183,13 +177,6 @@ export default function Navigation() {
                 className="block text-lg font-medium text-gray-400 hover:text-green-400 transition-colors"
               >
                 Contest
-              </Link>
-              <Link
-                href="/projects/portfolio-dashboard"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-lg font-medium text-gray-400 hover:text-green-400 transition-colors"
-              >
-                About
               </Link>
               <div className="pt-6 border-t border-gray-800 space-y-4">
                 <Link

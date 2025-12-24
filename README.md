@@ -4,35 +4,34 @@ Portfolio of AI projects built during the Codecademy 6-week bootcamp (August - S
 
 **Live:** [https://agentic-ai-projects-portfolio.vercel.app/](https://agenticaiprojectsportfolio.vercel.app/)
 
-![Portfolio Homepage](showcaseimage.png)
-
 ## Projects
 
 ### Completed
 
-**AI Comparison Showcase**
+**ModelViz**
 - Side-by-side comparison of GPT-4, Claude 3.5, and Gemini responses
 - Real-time streaming with response metrics
-- Live: https://ai-comparison-showcase.vercel.app
+- Live: https://modelviz.vercel.app/
 
-**AI Code Generator**
+**Code Generator**
 - Natural language to code with multi-language support
 - Automated test generation and documentation
-- Live: https://ai-code-generator-rouge.vercel.app/
+- Live: https://theaigenerator.vercel.app/
+
+**Morpheus**
+- Intelligent document Q&A system with semantic search and citations
+- RAG pipeline with Pinecone vector database and Claude 3.5 Sonnet
+- Live: https://morpheusrag.vercel.app
+
+**ReviewBot Protocol**
+- AI-powered GitHub PR reviews with automated code analysis
+- LangChain workflows for security, performance, and quality analysis
+- GitHub: https://github.com/ThomasJButler/ReviewBot-Protocol
 
 **SQL-Ball**
 - Football data analytics platform with natural language queries
 - LangChain to SQL conversion with PostgreSQL backend
 - Live: https://sql-ball.vercel.app/
-
-![SQL-Ball Project](showcaseimage2.png)
-
-### In Development
-
-- Git Review Assistant (automated PR reviews via LangChain)
-- RAG Chatbot (semantic search with Pinecone)
-- Multi-Agent System (LangGraph coordination)
-- Dev Workflow Agent (MCP integration for automation)
 
 ## Tech Stack
 
