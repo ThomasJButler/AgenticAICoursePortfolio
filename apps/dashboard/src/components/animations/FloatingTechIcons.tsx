@@ -38,8 +38,10 @@ export default function FloatingTechIcons() {
   useEffect(() => {
     if (prefersReducedMotion || !containerRef.current) return;
 
+    const icons = iconRefs.current.filter(Boolean);
+
     // Entrance animation
-    anime(iconRefs.current.filter(Boolean), {
+    anime(icons, {
       opacity: [0, 1],
       scale: [0.5, 1],
       duration: durations.slow,
@@ -48,7 +50,7 @@ export default function FloatingTechIcons() {
     });
 
     // Floating animation for each icon - subtle gentle movement
-    iconRefs.current.forEach((icon, index) => {
+    icons.forEach((icon, index) => {
       if (!icon) return;
 
       const floatY = 3 + Math.random() * 3; // 3-6px float (reduced)
@@ -64,7 +66,7 @@ export default function FloatingTechIcons() {
     });
 
     return () => {
-      iconRefs.current.forEach((icon) => {
+      icons.forEach((icon) => {
         if (icon) utils.remove(icon);
       });
     };
