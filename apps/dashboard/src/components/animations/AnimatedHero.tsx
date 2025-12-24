@@ -227,10 +227,12 @@ export default function AnimatedHero() {
 
   return (
     <section id="hero" className="container mx-auto px-4 pb-16 text-center pt-32 md:pt-40 relative min-h-[75vh] flex flex-col justify-center items-center overflow-hidden">
-      {/* Radial Gradient Background */}
+      {/* Enhanced Radial Gradient Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-green-500/10 via-cyan-500/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-emerald-500/8 to-transparent rounded-full blur-2xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-green-500/15 via-cyan-500/8 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-emerald-500/12 via-teal-500/6 to-transparent rounded-full blur-2xl" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-cyan-500/10 to-transparent rounded-full blur-xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }} />
+        <div className="absolute top-2/3 right-1/3 w-[300px] h-[300px] bg-gradient-radial from-green-400/8 to-transparent rounded-full blur-xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
       </div>
 
       {/* Floating Tech Icons */}
@@ -240,76 +242,102 @@ export default function AnimatedHero() {
       <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
 
       {/* Title - Two Lines with Enhanced Glow */}
-      <h1 className="font-bold mb-6 relative z-10">
+      <h1 className="font-bold mb-8 relative z-10">
         <span
           ref={titleLine1Ref}
-          className="block text-5xl sm:text-6xl md:text-7xl tracking-tight drop-shadow-[0_0_30px_rgba(16,185,129,0.3)]"
+          className="block text-5xl sm:text-6xl md:text-8xl tracking-tight drop-shadow-[0_0_40px_rgba(16,185,129,0.4)] filter"
           style={{ opacity: 0 }}
         >
           ML&GenAI
         </span>
         <span
           ref={titleLine2Ref}
-          className="block text-4xl sm:text-5xl md:text-6xl tracking-tight mt-2 drop-shadow-[0_0_25px_rgba(6,182,212,0.3)]"
+          className="block text-4xl sm:text-5xl md:text-7xl tracking-tight mt-3 drop-shadow-[0_0_35px_rgba(6,182,212,0.4)]"
           style={{ opacity: 0 }}
         >
           Portfolio
         </span>
+        {/* Animated underline accent */}
+        <div className="mt-6 flex justify-center">
+          <div className="h-1 w-32 bg-gradient-to-r from-transparent via-green-400 to-transparent rounded-full animate-pulse" style={{ animationDuration: '2s' }} />
+        </div>
       </h1>
 
-      {/* Main Subtitle with Glow */}
+      {/* Main Subtitle with Enhanced Styling */}
       <p
         ref={subtitleRef}
-        className="text-lg sm:text-xl text-gray-300 mb-3 max-w-2xl mx-auto relative z-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+        className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto relative z-10 font-light tracking-wide"
         style={{ opacity: 0 }}
       >
-        Mastering Generative AI & Agents for Developers
+        <span className="bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100 bg-clip-text text-transparent">
+          Mastering Generative AI & Agents for Developers
+        </span>
       </p>
 
-      {/* Stats Line */}
-      <p
+      {/* Enhanced Stats Line with Badges */}
+      <div
         ref={statsRef}
-        className="text-sm sm:text-base text-gray-500 mb-10 relative z-10"
+        className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-12 relative z-10"
         style={{ opacity: 0 }}
       >
-        <span className="text-cyan-400 font-medium">CodeCademy Bootcamp</span>
-        <span className="mx-2 text-cyan-500/50">•</span>
-        <span>6 Weeks</span>
-        <span className="mx-2 text-cyan-500/50">•</span>
-        <span>6 Projects</span>
-      </p>
+        <span className="inline-flex items-center px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium shadow-lg shadow-cyan-500/10 hover:bg-cyan-500/20 hover:border-cyan-400/50 transition-all duration-300 cursor-default">
+          <span className="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse" />
+          CodeCademy Bootcamp
+        </span>
+        <span className="inline-flex items-center px-3 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium shadow-lg shadow-green-500/10">
+          6 Weeks
+        </span>
+        <span className="inline-flex items-center px-3 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium shadow-lg shadow-emerald-500/10">
+          6 Projects
+        </span>
+      </div>
 
       {/* Action Buttons with Enhanced Effects */}
       <div
         ref={buttonsRef}
-        className="flex flex-col sm:flex-row gap-4 items-center justify-center relative z-10"
+        className="flex flex-col sm:flex-row gap-5 items-center justify-center relative z-10"
       >
-        <Button
-          className="bg-green-500 hover:bg-green-600 text-black font-semibold transform-gpu px-8 py-3 shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 transition-all duration-300 relative overflow-hidden group"
-          style={{ opacity: 0 }}
-          onClick={(e) => {
-            handleButtonClick(e);
-            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          onMouseEnter={handleButtonHover}
-          onMouseLeave={handleButtonLeave}
-        >
-          <span className="relative z-10">View Projects</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </Button>
-        <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
+        {/* Primary CTA Button with Glow */}
+        <div className="relative group">
+          {/* Animated glow ring */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-400 to-green-500 rounded-lg opacity-40 blur-md group-hover:opacity-70 transition-all duration-500 animate-pulse" style={{ animationDuration: '3s' }} />
           <Button
-            variant="ghost"
-            className="text-cyan-400 hover:text-white border-2 border-cyan-500/40 hover:border-cyan-400/70 hover:bg-cyan-400/10 transform-gpu px-8 py-3 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 relative overflow-hidden group"
+            className="relative bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-400 hover:to-emerald-400 text-black font-bold transform-gpu px-10 py-4 text-base shadow-2xl shadow-green-500/30 hover:shadow-green-400/50 transition-all duration-300 overflow-hidden"
             style={{ opacity: 0 }}
+            onClick={(e) => {
+              handleButtonClick(e);
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             onMouseEnter={handleButtonHover}
             onMouseLeave={handleButtonLeave}
-            onClick={handleButtonClick}
           >
-            <Award className="mr-2 relative z-10 group-hover:rotate-12 transition-transform duration-300" size={18} />
-            <span className="relative z-10">Show Certificate</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-400/10 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10 flex items-center">
+              View Projects
+              <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           </Button>
+        </div>
+
+        {/* Secondary Button with Border Glow */}
+        <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg opacity-30 blur group-hover:opacity-60 transition-all duration-500" />
+            <Button
+              variant="ghost"
+              className="relative bg-gray-900/80 text-cyan-400 hover:text-white border border-cyan-500/50 hover:border-cyan-400 hover:bg-gray-800/90 transform-gpu px-8 py-4 text-base shadow-xl shadow-cyan-500/10 hover:shadow-cyan-400/30 transition-all duration-300 overflow-hidden"
+              style={{ opacity: 0 }}
+              onMouseEnter={handleButtonHover}
+              onMouseLeave={handleButtonLeave}
+              onClick={handleButtonClick}
+            >
+              <Award className="mr-2 relative z-10 group-hover:rotate-12 group-hover:scale-110 transition-all duration-300" size={20} />
+              <span className="relative z-10">Show Certificate</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-400/10 to-cyan-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+            </Button>
+          </div>
         </Link>
       </div>
     </section>
