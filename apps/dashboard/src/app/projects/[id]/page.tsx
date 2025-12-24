@@ -13,7 +13,7 @@ import MatrixDivider from "@/components/ui/MatrixDivider";
 
 const projectDetails = {
   "ai-code-generator": {
-    title: "AI Code Generator",
+    title: "Code Generator",
     fullDescription: "An intelligent natural language to code conversion system that leverages advanced AI models to generate high-quality, well-structured code from plain English descriptions. Features support for multiple programming languages and frameworks with automated testing and documentation generation.",
     week: "Week 1-2",
     status: "completed",
@@ -300,16 +300,16 @@ export default function ProjectDetailPage() {
         <Button
           onClick={() => router.push("/")}
           variant="ghost"
-          className="mb-8 text-gray-400 hover:text-black hover:bg-green-400/20 border border-transparent hover:border-green-400/50"
+          className="mb-8 text-gray-400 hover:text-white hover:bg-green-400/20 border border-transparent hover:border-green-400/50"
         >
           <ArrowLeft className="mr-2" size={20} />
-          Back to Projects
+          Back to Portfolio
         </Button>
 
         {/* Project Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent hover:from-cyan-400 hover:to-green-400 transition-all duration-500">
+          <div className="flex items-center gap-3 mb-4">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
               {project.title}
             </h1>
             <span className={`px-3 py-1 rounded-md text-sm transition-all duration-200 hover:scale-110 ${statusColors[project.status as keyof typeof statusColors]}`}>
