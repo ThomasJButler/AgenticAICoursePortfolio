@@ -29,5 +29,8 @@
   "packageManager": "npm@10.9.2",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
   }
 }
