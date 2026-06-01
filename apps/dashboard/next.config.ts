@@ -17,6 +17,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Serve self-hosted certificate PDFs for inline viewing in a new tab
+  // (Content-Disposition: inline) rather than forcing a download, and stop
+  // browsers MIME-sniffing them into anything other than application/pdf.
+  async headers() {
+    return [
+      {
+        source: "/certificates/:path*",
+        headers: [
+          { key: "Content-Disposition", value: "inline" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

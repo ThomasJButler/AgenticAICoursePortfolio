@@ -322,7 +322,7 @@ export default function AnimatedHero() {
         </div>
 
         {/* Secondary Button with Border Glow */}
-        <Link href="https://www.codecademy.com/bootcamps/ai-1/certificates/61bbd81425580b633fee49f6" target="_blank" rel="noopener noreferrer">
+        <Link href="/certificates/codecademy-ai-agents-certificate.pdf" target="_blank" rel="noopener noreferrer">
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-lg opacity-30 blur group-hover:opacity-60 transition-all duration-500" />
             <Button
